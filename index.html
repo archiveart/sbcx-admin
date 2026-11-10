@@ -176,7 +176,7 @@ details.card>summary{list-style:none} details.card>summary::-webkit-details-mark
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 33</b> · 11/10 · 실험물 V22_FB_31 (v22.32 · 아영 FB_29 최종 + 미니 8명) · 코드북 v22.29 (11/10 · 팀)</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 34</b> · 11/10 · 실험물 V22_FB_31 (v22.32 · 아영 FB_29 최종 + 미니 8명) · 코드북 v22.29 (11/10 · 팀)</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -227,6 +227,7 @@ details.card>summary{list-style:none} details.card>summary::-webkit-details-mark
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 34 (11/10 밤, 허준영): 손 표시에 '미니테스트' 추가 — 카드의 ① ② ③ 옆 [미니] 단추 · 응답 상세 '파일럿 조' 선택 상자에 미니테스트(본 설문 링크로 잘못 들어온 미니 참가자를 미니로 바꿀 때 · 예: R070) · 미니 배정 수와 기록이 다르면 양쪽 모두 알림(자리만 잡힌 배정 / 배정 수에 없는 기록) → [실제 기록에 맞추기]
    연구자 화면 33 (11/10 오후, 허준영): 미니테스트 — 링크가 배정한 수(meta/pilotAssign/mini)와 실제로 남은 기록(완료 · 진행 중 · 잠시 멈춤)을 비교해 '자리만 잡힌 배정'(테스트로 들어갔다 지움 · 배정 직후 창 닫음 · 30분 넘게 멈춤)을 찾고, [실제 기록에 맞추기]로 배정 수를 기록대로 다시 씀 → 비어 있는 칸이 다시 무작위로 나옴 · 미니 한 줄에 '링크가 다음에 고를 수 있는 자리' 표시 · 설정 탭에도 같은 단추
    연구자 화면 32 (11/10, 허준영 · 팀 요청): 한눈에 보기에 '미니테스트' 한 줄(목표 8 · 사전/사후 · 목적/탐색 · 4칸 칸당 2 · 판정표 ①–③ 통과/미달 · ② · 미리보기와 따로) + '랜덤 배정 균형' 카드(4칸 × DA/AD · 시작 · 완료 · 쏠림 빨강 · 단톡 한 줄 복사 · 지금 미달 카드에도 쏠림 줄) · 실험물 V22_FB_31(v22.32 · 미니 링크 하나 = 4칸 × DA/AD 여덟 칸에 1명씩) · 코드북 v22.29(팀 11/10: fast_under_median3 · rec_loading · 시간 기준 · 23 · 26 · 29번 문구 — 35행 '한 번만'은 지운 채로) · 로그 이름 rec_loading · 설정 탭 버전 설명 고침(v22–v25 집계 · v21 이하 다른 버전)
    연구자 화면 31 (11/10, 허준영): 실험물 V22_FB_30(v22.31 = 아영 FB_29 최종 + 파일럿 균형 · 리허설 예외 · 미니 재검사 링크 하나)에 맞춤 — 23번(Q8) 새 문구 · 시간 열 설명(사후 첫 6개 로딩 뒤부터) · '반영' 딱지 사전 6개 모두 · 배정 firebase-mini 정상 · 로그 mini_assign · 한눈에 보기 미니 배정 균형 줄 · 설정 탭 파일럿 · 미니 배정 수 0으로 단추 · 코드북 v22.31
@@ -1578,8 +1579,9 @@ function miniSyncPlan() {   // 배정 수(meta) ↔ 실제 기록 · ghost = 기
   const occ = miniOccupy(), arms = {}, cells = {}; occ.forEach(s => { const k = miniArmKey(s.cond); arms[k] = (arms[k] || 0) + 1; const ck = 'c' + s.cond.cell; cells[ck] = (cells[ck] || 0) + 1; });
   const m = (((data().meta || {}).pilotAssign) || {}).mini || {}, ma = m.arms || {}, counter = m.total || 0;
   const ghostArms = MINI_ARMS8.filter(k => (ma[k] || 0) > (arms[k] || 0)).map(k => `${MINI_ARM_LABEL(k)} ${(ma[k] || 0) - (arms[k] || 0)}`);
+  const extraArms = MINI_ARMS8.filter(k => (arms[k] || 0) > (ma[k] || 0)).map(k => `${MINI_ARM_LABEL(k)} ${(arms[k] || 0) - (ma[k] || 0)}`), extra = MINI_ARMS8.reduce((t, k) => t + Math.max(0, (arms[k] || 0) - (ma[k] || 0)), 0), ghostN = MINI_ARMS8.reduce((t, k) => t + Math.max(0, (ma[k] || 0) - (arms[k] || 0)), 0);   // V34: 배정 수에 없는 기록(손으로 미니로 바꾼 사람 등)
   const minC = Math.min(...MINI_ARMS8.map(k => ma[k] || 0)), nextArms = MINI_ARMS8.filter(k => (ma[k] || 0) === minC).map(MINI_ARM_LABEL);
-  return { occ, arms, cells, total: occ.length, counter, ghost: Math.max(0, counter - occ.length), ghostArms, nextArms };
+  return { occ, arms, cells, total: occ.length, counter, ghost: ghostN, ghostArms, extra, extraArms, nextArms };
 }
 function miniLineCheck() {   // 미니테스트(src=mini · 가장 새 실험물 버전 · 완료 · 손 제외 아님) — ② 사전검사 · 미리보기 · 리허설과 따로
   const G = pilotGroups(), done = G.mini || [], ver = (G.ver || {}).mini, all = sessionsKind('p2m'), started = ver ? all.filter(s => studyVerKey(s) === ver) : all;
@@ -1599,7 +1601,7 @@ function miniLineHTML() {
     <div class="muted" style="font-size:12px;margin-top:4px">칸 안 결정 먼저(DA) · 행동 먼저(AD): ${G4.map(g => `${GROUP_LABEL[g]} DA ${m.c[g].DA} · AD ${m.c[g].AD}`).join(' / ')}${short.length ? ` · 모자란 칸: ${esc(short.join(' · '))}` : ''} · 진행 중 ${m.act} · 중단 · 종료 ${m.drop}${m.ver ? ` · 실험물 ${esc(m.ver)}만${m.oldN ? `(예전 버전 ${m.oldN}명 뺌)` : ''}` : ''} · ② 사전검사 · 미리보기(?dev=1) · 리허설과 따로 셈</div>
     ${m.rows.length ? `<div class="muted" style="font-size:12px;margin-top:2px">${esc(rowsTxt)}</div>` : ''}
     <div class="muted" style="font-size:12px;margin-top:2px">링크가 다음에 고를 수 있는 자리(배정 수 ${m.plan.counter} 기준 · 이 중 무작위): <b>${esc(m.plan.nextArms.join(' · '))}</b></div>
-    ${m.plan.ghost ? `<div class="banner" style="margin-top:8px"><b>자리만 잡힌 배정 ${m.plan.ghost}개</b><span>링크는 ${m.plan.counter}번 배정했는데 실제로 남은 기록(완료 · 진행 중)은 ${m.plan.total}명이에요. 테스트로 들어갔다 지운 기록 · 배정 직후 닫은 창 · 30분 넘게 멈춘 사람이 칸을 차지하고 있어서 그 칸(${esc(m.plan.ghostArms.join(' · '))})이 다시 안 나와요 → 누르면 배정 수를 기록대로 다시 써서 빈 칸이 다시 무작위로 나와요(참여 기록은 그대로)</span><span class="sp"></span><button class="btn xs" onclick="syncMiniCounts()">실제 기록에 맞추기</button></div>` : ''}
+    ${m.plan.ghost || m.plan.extra ? `<div class="banner" style="margin-top:8px"><b>배정 수 ≠ 기록</b><span>${m.plan.ghost ? `자리만 잡힌 배정 ${m.plan.ghost}개(${esc(m.plan.ghostArms.join(' · '))}) — 테스트로 들어갔다 지운 기록 · 배정 직후 닫은 창 · 30분 넘게 멈춘 사람이 칸을 잡고 있어 그 칸이 다시 안 나와요. ` : ''}${m.plan.extra ? `배정 수에 없는 미니 기록 ${m.plan.extra}개(${esc(m.plan.extraArms.join(' · '))}) — 본 설문 링크로 들어와 손으로 미니로 바꾼 사람이라, 링크가 그 칸을 또 고를 수 있어요. ` : ''}→ 누르면 배정 수를 기록대로 다시 써요(참여 기록은 그대로)</span><span class="sp"></span><button class="btn xs" onclick="syncMiniCounts()">실제 기록에 맞추기</button></div>` : ''}
     <div class="muted" style="font-size:12px;margin-top:2px">링크 하나 <span class="mono">${esc(STUDY.links.mini)}</span> <button class="btn xs ghost" onclick="copyText(STUDY.links.mini)">복사</button> — 여덟 칸(4칸 × DA · AD)에 1명씩 저절로(V22_FB_31) · 중간에 나간 칸만 더 받으려면 링크 끝에 &amp;cell=칸번호 · 시작 직전 설정 탭 [미니테스트 배정 수 0으로]</div></div>`;
 }
 function failCardHTML() {   // V29: 한눈에 보기 맨 위 — 지금 미달인 것(실시간 · 파일럿 판정표 '단계별 자동'과 같은 계산 + 미니 재검사 + 소프트 런치)
@@ -1843,7 +1845,7 @@ function respDetail(s) {
       <div class="kv wrap"><dt>시작</dt><dd>${fmtDTS(s.startedAt)}</dd><dt>완료</dt><dd>${fmtDTS(s.finishedAt)}</dd><dt>걸린 시간</dt><dd>${fmtDur(totalSec(s))}${isFast(s) && !isRehearsal(s) ? ' <span style="color:var(--warn)">(너무 빠름)</span>' : ''}</dd><dt>조건 정한 곳</dt><dd>${esc(s.assignSource || '—')}</dd><dt>이어서 시작</dt><dd>${s.resumed || 0}회</dd><dt>실험물 버전</dt><dd>${esc(s.study || '—')}</dd><dt>단계별 시간</dt><dd>${esc(STAGES.filter(sg => ss[sg.key] > 0).map(sg => `${sg.short} ${fmtDur(ss[sg.key])}`).join(' / ') || '—')}</dd></div>
       <div class="kv wrap"><dt>동의</dt><dd>${s.consent ? `${esc(s.consent.version)} · ${fmtDT(s.consent.at)} · 번호 ${s.consent.phone ? '동의' : '동의 안 함'}` : '없음'}</dd><dt>번호 지문</dt><dd>${s.phoneHash ? esc(String(s.phoneHash).slice(0, 8)) + (dupOf(s) ? ` <span style="color:var(--bad)">같은 번호: ${esc(dupOf(s).join(', '))}</span>` : '') : '없음 (추첨 안 함)'}${s.restartOf ? ` · 앞 기록 ${esc(s.restartOf)}` : ''}</dd><dt>주의 점검</dt><dd>3번(ATT0) ${okIn(att0Ok(s).ok)}${att0Ok(s).ok === false ? ' <span style="color:var(--bad)">(제외 기준)</span>' : att0Ok(s).answered ? '' : ' <span class="dim">(이 기록엔 없음)</span>'} · 24번(Q30 · 정답 ${att30Expect(s)}) ${okIn(att30Ok(s).ok)}${att30Ok(s).ok === false ? ' <span style="color:var(--warn)">(민감도만 · 주분석엔 넣음)</span>' : ''}${at.XATT3 != null ? ` · XATT3 ${okIn(at.XATT3)}` : ''}</dd><dt>확인 질문 · 첫 쇼핑</dt><dd>${esc(mcLine(s, 1))}</dd><dt>확인 질문 · 둘째 쇼핑</dt><dd>${esc(mcLine(s, 2))}</dd><dt>브라우저</dt><dd title="${esc((s.env || {}).ua || '')}">${esc(browserOf((s.env || {}).ua))} · 창 ${(s.env || {}).vw}×${(s.env || {}).vh}</dd></div>
       <div class="card" style="background:var(--bg);padding:12px 14px"><div class="kicker" style="margin-bottom:8px">연구자 표시</div>
-        <div class="row" style="margin-bottom:8px"><label class="sw"><input type="checkbox" ${a.excluded ? 'checked' : ''} onchange="setFlag('${esc(s.pid)}','excluded',this.checked)">집계에서 빼기</label><label class="sw"><input type="checkbox" ${a.pilot ? 'checked' : ''} ${s.pilot ? 'disabled title="파일럿 링크(?pilot=1)로 들어온 응답"' : ''} onchange="setFlag('${esc(s.pid)}','pilot',this.checked)">파일럿${s.pilot ? '(링크)' : ''}</label><select class="inp" style="height:28px;font-size:12px" onchange="setText('${esc(s.pid)}','pilotGroup',this.value)"><option value="" ${!a.pilotGroup ? 'selected' : ''}>파일럿 조 없음</option><option value="think" ${a.pilotGroup === 'think' ? 'selected' : ''}>① 인지 인터뷰 4명 (11/6)</option><option value="real" ${a.pilotGroup === 'real' ? 'selected' : ''}>② 자극 사전검사 8명 (11/8–9 · 판정표)</option><option value="run" ${a.pilotGroup === 'run' ? 'selected' : ''}>③ 실제 진행 10–20명 (11/10)</option></select></div>
+        <div class="row" style="margin-bottom:8px"><label class="sw"><input type="checkbox" ${a.excluded ? 'checked' : ''} onchange="setFlag('${esc(s.pid)}','excluded',this.checked)">집계에서 빼기</label><label class="sw"><input type="checkbox" ${a.pilot ? 'checked' : ''} ${s.pilot ? 'disabled title="파일럿 링크(?pilot=1)로 들어온 응답"' : ''} onchange="setFlag('${esc(s.pid)}','pilot',this.checked)">파일럿${s.pilot ? '(링크)' : ''}</label><select class="inp" style="height:28px;font-size:12px" onchange="setText('${esc(s.pid)}','pilotGroup',this.value)"><option value="" ${!a.pilotGroup ? 'selected' : ''}>파일럿 조 없음</option><option value="think" ${a.pilotGroup === 'think' ? 'selected' : ''}>① 인지 인터뷰 4명 (11/6)</option><option value="real" ${a.pilotGroup === 'real' ? 'selected' : ''}>② 자극 사전검사 8명 (11/8–9 · 판정표)</option><option value="run" ${a.pilotGroup === 'run' ? 'selected' : ''}>③ 실제 진행 10–20명 (11/10)</option><option value="mini" ${a.pilotGroup === 'mini' ? 'selected' : ''}>미니테스트 8명 (11/10 · 링크 src=mini)</option></select></div>
         <div class="row" style="margin-bottom:8px;gap:6px"><span class="muted" style="font-size:12px">모집 경로</span><select class="inp" style="height:28px;font-size:12px" onchange="setText('${esc(s.pid)}','src',this.value)"><option value="" ${!a.src ? 'selected' : ''}>링크대로 (${esc(s.src ? srcLabel(s.src) : '미표시')})</option><option value="friend" ${a.src === 'friend' ? 'selected' : ''}>지인</option><option value="agency" ${a.src === 'agency' ? 'selected' : ''}>업체</option><option value="rehearsal" ${a.src === 'rehearsal' ? 'selected' : ''}>리허설 (집계 제외)</option></select></div>
         ${autoReasons(s).length ? `<div class="row" style="margin-bottom:8px;gap:8px;flex-wrap:wrap"><span class="badge ${isKept(s.pid) ? 'b-warn' : 'b-bad'}">규칙에 걸림 · ${esc(autoReasons(s).join(' · '))}</span><label class="sw"><input type="checkbox" ${isKept(s.pid) ? 'checked' : ''} onchange="setFlag('${esc(s.pid)}','keep',this.checked)">자동 제외 무시하고 집계에 넣기</label></div>` : ''}
         <input class="inp" style="width:100%;margin-bottom:8px" id="resp-label" placeholder="이름표 — 파일럿·미리보기처럼 누구인지 아는 사람만 (본 설문 참가자는 익명이라 비워 둠)" value="${esc(a.label || '')}" onchange="setText('${esc(s.pid)}','label',this.value)">
@@ -1863,18 +1865,19 @@ function respDetail(s) {
 }
 function quickStage(ev, pid, g) {   // 카드의 ① ② ③ 단추 — 한 번 누르면 그 단계로(다시 누르면 지움)
   ev.stopPropagation(); const cur = admOf(pid).pilotGroup || ''; const v = cur === g ? '' : g;
-  fbUpdate('exclusions/' + pid, { pilotGroup: v || null, at: new Date().toISOString() }).then(() => toast(v ? `${pid} → ${kindLabel(v === 'think' ? 'p1' : v === 'real' ? 'p2' : 'p3')}` : `${pid} 단계 표시를 지웠습니다`));
+  fbUpdate('exclusions/' + pid, { pilotGroup: v || null, at: new Date().toISOString() }).then(() => toast(v ? `${pid} → ${kindLabel(STAGE_KIND[v] || 'p3')}` : `${pid} 단계 표시를 지웠습니다`));
 }
 function bulkStage(g) {   // 지금 보이는 사람 모두 한 단계로 (검색 · 상태 칩 · 구분 칩이 걸러 준 목록)
   const list = respList().filter(s => !isDev(s) && !isRehearsal(s)); if (!list.length) return toast('표시할 사람이 없습니다', 'err');
-  const lab = g ? kindLabel(g === 'think' ? 'p1' : g === 'real' ? 'p2' : 'p3') : '단계 표시 없음';
+  const lab = g ? kindLabel(STAGE_KIND[g] || 'p3') : '단계 표시 없음';
   if (!confirm(`지금 보이는 ${list.length}명을 모두 '${lab}'(으)로 표시할까요?`)) return;
   const at = new Date().toISOString(); Promise.all(list.map(s => fbUpdate('exclusions/' + s.pid, { pilotGroup: g || null, at }))).then(() => toast(`${list.length}명을 ${lab}(으)로 표시했습니다`));
 }
-function stageBtns(s) {   // 카드 · 표 줄에 붙는 ① ② ③ 작은 단추 (본 설문 · 파일럿 · 테스트에만)
-  const k = kindOf(s); if (!['pilot', 'test', 'p1', 'p2', 'p3'].includes(k)) return ''; const cur = admOf(s.pid).pilotGroup || '', auto = !cur && pilotGroupOf(s);   // 본 설문 기록에는 안 붙임(잘못 눌러 파일럿이 되지 않게 · 필요하면 응답 상세의 선택 상자로)
+const STAGE_KIND = { think: 'p1', real: 'p2', run: 'p3', mini: 'p2m' };   // V34: 손 표시 값 → 구분
+function stageBtns(s) {   // 카드 · 표 줄에 붙는 ① ② ③ · 미니 작은 단추 (파일럿 · 테스트에만 · V34: 미니 추가)
+  const k = kindOf(s); if (!['pilot', 'test', 'p1', 'p2', 'p3', 'p2m'].includes(k)) return ''; const cur = admOf(s.pid).pilotGroup || '', auto = !cur && pilotGroupOf(s);   // 본 설문 기록에는 안 붙임(잘못 눌러 파일럿이 되지 않게 · 필요하면 응답 상세의 선택 상자로)
   const b = (g, t, tip) => `<button class="chip xs ${(cur || auto) === g ? 'on' : ''}" style="padding:0 7px;height:20px;font-size:11px" title="${esc(tip)}${auto === g ? ' (링크 src로 자동)' : ''}" onclick="quickStage(event,'${esc(s.pid)}','${g}')">${t}</button>`;
-  return `<span class="row" style="gap:3px" title="파일럿 단계 표시">${b('think', '①', '① 인지 인터뷰')}${b('real', '②', '② 자극 사전검사')}${b('run', '③', '③ 실제 진행')}</span>`;
+  return `<span class="row" style="gap:3px" title="파일럿 단계 표시">${b('think', '①', '① 인지 인터뷰')}${b('real', '②', '② 자극 사전검사')}${b('run', '③', '③ 실제 진행')}${b('mini', '미니', '미니테스트 — 본 설문 링크로 잘못 들어온 미니 참가자도 이걸 누르면 미니로 셈')}</span>`;
 }
 function renderResponses() {
   const kind = respKind(), kc = kindCounts(), list = respList(), sel = S.sel.resp ? sessOf(S.sel.resp) : null;
@@ -2121,7 +2124,7 @@ function resetPilotCounts() {   // V31: 파일럿 배정 수(meta/pilotAssign의
   fbUpdate('meta/pilotAssign', { arms: null, cells: null, total: null, last: null }).then(() => { toast('파일럿 배정 수를 0으로 되돌렸습니다'); renderAll(); });
 }
 function syncMiniCounts() {   // V33: 미니테스트 배정 수를 실제 기록(완료 · 진행 중 · 잠시 멈춤)대로 다시 씀 — 기록 없이 자리만 잡은 배정을 풂
-  const p = miniSyncPlan(); if (!confirm(`미니테스트 배정 수를 실제 기록에 맞출까요?\n지금 배정 수 ${p.counter} → 실제로 자리를 차지한 기록 ${p.total}명(완료 · 진행 중)\n자리만 잡힌 배정 ${p.ghost}개(${p.ghostArms.join(' · ') || '없음'})가 풀려서 그 칸이 다시 무작위로 나옵니다. 참여 기록은 그대로입니다.`)) return;
+  const p = miniSyncPlan(); if (!confirm(`미니테스트 배정 수를 실제 기록에 맞출까요?\n지금 배정 수 ${p.counter} → 실제로 자리를 차지한 기록 ${p.total}명(완료 · 진행 중)\n자리만 잡힌 배정 ${p.ghost}개(${p.ghostArms.join(' · ') || '없음'})는 풀리고, 배정 수에 없던 기록 ${p.extra}개(${p.extraArms.join(' · ') || '없음'})는 채워집니다. 참여 기록은 그대로입니다.`)) return;
   fbWrite('meta/pilotAssign/mini', { arms: p.arms, cells: p.cells, total: p.total, last: null, syncedAt: new Date().toISOString() }).then(() => { toast('미니테스트 배정 수를 실제 기록에 맞췄습니다'); renderAll(); });
 }
 function resetMiniCounts() {   // V31: 미니테스트 배정 수(meta/pilotAssign/mini)를 0으로
