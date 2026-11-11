@@ -176,7 +176,7 @@ details.card>summary{list-style:none} details.card>summary::-webkit-details-mark
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 37</b> · 11/11 · 실험물 v22.33(V22_FB_36) · 최종 v22.36 둘 다 읽음 · 코드북 v22.36 (11/11 · 지혜 36 합침)</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 38</b> · 11/11 · 실험물 v22.33(V22_FB_36) · 최종 v22.36 둘 다 읽음 · 코드북 v22.36 (11/11 · 적는 중엔 화면 안 바뀜)</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -227,6 +227,7 @@ details.card>summary{list-style:none} details.card>summary::-webkit-details-mark
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 38 (11/11 저녁, 허준영): 실제 진행 중 '응답 보기가 안 눌림' — 참가자가 하는 동안 2초마다 Firebase가 바뀌어 화면 전체를 다시 그리면서 누르던 카드 · 적던 칸(메모 · 질문 10–12)이 바뀜 → 적는 중(칸에 커서) · 누르는 중에는 다시 그리기를 미루고 칸을 벗어나면 그림(renderSoon · uiBusy) · 연결 상태에서는 1.5초에 한 번만 · 계산 · 코드북은 그대로
    연구자 화면 37 (11/11 오후, 허준영): 지혜 36(이지혜 · Claude) + 준영 36 합침 — ① ③ 실제 진행(파일럿 배정 meta/pilotAssign)에도 [실제 기록에 맞추기](arms · cells · total만 다시 씀 · 미니 meta/pilotAssign/mini는 그대로) + 균형 카드 ③에 '자리만 잡힌 배정' 경고 · 완료가 덜 찬 칸 &cell=N 링크(배정이 막혔을 때 비상용) ② v22.33부터 본 설문 시작(11/12 18:00) 전 기록은 손 표시가 없으면 기본 ③ 실제 진행(파일럿 · 본 설문 링크 모두 · 리허설 · 미리보기 빼고 · autoRunOf) ③ 과업 표 time_excluded 열 ④ 질문 목록의 V20 대조표 · '시작 전 점검' 탭 숨김 ⑤ 코드북 v22.36(지혜 수정 7줄 — 버전 표기는 배포된 study 값으로 바로잡음: v22.32 = V22_FB_31 · v22.33 = V22_FB_36 · 최종 v22.36 · 아영 로컬 FB_32–35는 study v22.30으로 찍힘) ⑥ 판정 버전: v22.36 = v22.33으로 셈(JUDGE_SAME_VER · 실제 진행 도중 교체 대비)
    연구자 화면 36-지혜 (11/11, 이지혜 · Claude · 배포 안 함 → 37에 합침): ① 본 설문 16칸 [실제 기록에 맞추기](meta/cellCounts를 완료 · 진행 중 · 잠시 멈춤 기록대로 다시 씀 · 미니와 같은 방식) + 랜덤 배정 균형 카드에 '자리만 잡힌 배정 n개' 경고 — 실험물은 시작(배정) 때 칸 수를 올리고 내리지 않아 중간에 나간 사람 · 조건 미달 종료(배정이 나이 · 구매 확인보다 먼저)도 칸을 잡음 ② home_sec을 실험물과 같게(t_home_click · 사후 로딩 · 등장 제외) ③ v22.33 전 실험물에서 [다시 해 보기]를 누른 과업은 home_sec · control_sec · first_op_sec 빈칸(timeFixed · 음수 등 틀린 값) ④ 코드북 23번 W_1 ‘바뀐 문구 유지 확정’ · study v22.30 주의 · 최종 실험물 v22.36
    연구자 화면 36-준영 (11/11 오전, 허준영 · 배포 안 함 → 37에 합침): 실제 진행 끝난 뒤 메신저 질문 10 · 11 · 12 답 칸 — 응답 상세 '실제 진행 끝난 뒤 질문'에 적으면 exclusions/{pid}(debrief_q10–12)에 저장 · 카드 · 표 줄에 '질문 n/3' · 응답 CSV · 사람 표 끝에 debrief_q10–12 · 코드북 v22.33b(한 줄 추가) · 실험물은 그대로
@@ -1495,7 +1496,20 @@ function w9Text() { const w9 = (((data().meta || {}).ops || {}).w9) || {}; retur
 const PAGE_TITLE = { dashboard: '한눈에 보기', live: '지금 하는 사람', monitor: '매일 점검 (21:00)', analytics: '조건별 비교', responses: '응답 보기', logs: '클릭 기록(로그)', consent: '동의 기록', codebook: '저장 열 이름(코드북)', ops: '시작 전 점검', items: '질문 목록', tasks: '화면 순서', dvars: '점수 계산법', trash: '휴지통', settings: '설정·내려받기' };
 const TERMS = '용어: 목적형 = 살 것이 정해진 상황 · 탐색형 = 둘러보는 상황 · 사전 = 추천 받기 전에 조건 정함 · 사후 = 추천 본 뒤 고침 · 결정 = 빼기 · 행동 = 조건 바꾸기';
 function rulesText() { const R = rulesOf(); const on = []; if (R.att) on.push(`주의 점검 3번(${ATT0.code}) 오답`); if (R.fast) on.push(`소요 시간 하한(${R.fastSec > 0 ? R.fastSec + '초 미만' + (R.fastLocked ? ' · 사전등록 숫자로 고정' : ' · 아직 고정 안 함') : '임시: 완료 중앙값 ÷ 3 미만 · 지금 ' + Math.round(fastThreshold()) + '초 · 11/12 전에 초로 고정할 것'})`); if (R.dup) on.push('번호 중복 뒤 기록'); if (R.mcFails > 0) on.push(`확인 질문 ${R.mcFails}개 이상 틀림`); return (on.length ? '자동 제외 규칙(교수님 22쪽 · 자극 전 정보만): ' + on.join(' · ') + ' — 해당하면 집계에서 저절로 빠지고, 응답 보기에서 사람마다 되돌릴 수 있음 · 설정 탭에서 켜고 끔' : '자동 제외 규칙: 모두 꺼짐 (설정 탭)') + ' · Q30(24번 주의 점검)은 제외에 안 쓰고 민감도만'; }
-function scheduleRender() { clearTimeout(S.renderT); S.renderT = setTimeout(renderAll, 60); }
+function scheduleRender() { clearTimeout(S.renderT); S.renderT = setTimeout(renderSoon, 60); }   // V38: Firebase가 바뀌면 renderSoon — 적는 중 · 누르는 중이면 미룸 · 연결 상태에서는 1.5초에 한 번
+function uiBusy() { const a = document.activeElement; return (!!S.pointerDown && Date.now() - (S.pointerDownAt || 0) < 5000) || (!!a && /^(TEXTAREA|INPUT|SELECT)$/.test(a.tagName) && !!a.closest('.page')); }
+function renderSoon() {   // V38 (11/11 저녁): 실제 진행 참가자가 하는 동안 2초마다 기록이 바뀌어 화면 전체를 다시 그리면, 누르던 카드 · 적던 칸(메모 · 질문 10–12)이 사라짐 → 미룸
+  if (uiBusy()) { S.renderLater = true; return; }
+  const gap = S.bgGap != null ? S.bgGap : (S.mode === 'fb' ? 1500 : 0), wait = gap - (Date.now() - (S.lastBgRender || 0));
+  if (wait > 0) { clearTimeout(S.renderT); S.renderT = setTimeout(renderSoon, wait); return; }
+  S.lastBgRender = Date.now(); S.renderLater = false; renderAll();
+}
+function renderAfterUi() { if (S.renderLater) { clearTimeout(S.renderT); S.renderT = setTimeout(renderSoon, 300); } }
+document.addEventListener('pointerdown', () => { S.pointerDown = true; S.pointerDownAt = Date.now(); }, true);
+document.addEventListener('pointerup', () => { S.pointerDown = false; renderAfterUi(); }, true);
+document.addEventListener('pointercancel', () => { S.pointerDown = false; renderAfterUi(); }, true);
+document.addEventListener('focusout', renderAfterUi, true);
+window.addEventListener('blur', () => { S.pointerDown = false; });
 function renderAll() { try { resolveAtt0Code(); renderCounts(); renderBanner(); const fn = RENDER[S.page]; if (fn) fn(); } catch (e) { console.error(e); toast('화면 오류: ' + (e.message || e), 'err'); } }
 function renderCounts() {
   const v = sessionsVisible();
@@ -2264,7 +2278,7 @@ function init() {
   if (cfg && typeof firebase !== 'undefined') { connectFirebase(cfg); }
   else { S.mode = 'demo'; setConn('demo'); }
   showPage('dashboard');
-  S.tick = setInterval(() => { if (S.page === 'live' || S.page === 'dashboard' || S.page === 'monitor') renderAll(); const c = $('#live-clock'); if (c) c.textContent = fmtDTS(Date.now()); }, 15000);
+  S.tick = setInterval(() => { if (S.page === 'live' || S.page === 'dashboard' || S.page === 'monitor') renderSoon();   /* V38: 적는 중이면 미룸 */ const c = $('#live-clock'); if (c) c.textContent = fmtDTS(Date.now()); }, 15000);
 }
 document.addEventListener('DOMContentLoaded', init);
 
