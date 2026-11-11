@@ -176,7 +176,7 @@ details.card>summary{list-style:none} details.card>summary::-webkit-details-mark
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 39</b> · 11/11 · 실험물 v22.33(V22_FB_36) · 최종 v22.36 둘 다 읽음 · 코드북 v22.36 (11/11 · 리허설 카드에 돌린 때)</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 40</b> · 11/11 · 실험물 v22.34(V22_FB_37 · 파일럿 링크 마감) · v22.33 · v22.36 같이 셈 · 코드북 v22.36</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -227,6 +227,7 @@ details.card>summary{list-style:none} details.card>summary::-webkit-details-mark
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 40 (11/11 밤, 허준영): 실험물 V22_FB_37(v22.34 = v22.33 + 파일럿 링크 마감 PILOT_CLOSED · 실제 진행 16명으로 마무리 · 팀 요청)에 맞춤 — 판정에서 v22.34도 v22.33과 같은 버전(JUDGE_SAME_VER) · 리허설 카드는 파일마다 따로(v22.34로 32회 다시)
    연구자 화면 39 (11/11 밤, 허준영): 연결 리허설 카드 · 제출물 ④ 한 줄에 '돌린 때'(첫 시작 → 마지막 끝 · 한국 시간 · kstRange) — CSV started_at은 UTC라 11/11 새벽 2:20 리허설이 '11-10'으로 보여 조원이 다시 돌려 달라고 함 · 계산 · 코드북은 그대로
    연구자 화면 38 (11/11 저녁, 허준영): 실제 진행 중 '응답 보기가 안 눌림' — 참가자가 하는 동안 2초마다 Firebase가 바뀌어 화면 전체를 다시 그리면서 누르던 카드 · 적던 칸(메모 · 질문 10–12)이 바뀜 → 적는 중(칸에 커서) · 누르는 중에는 다시 그리기를 미루고 칸을 벗어나면 그림(renderSoon · uiBusy) · 연결 상태에서는 1.5초에 한 번만 · 계산 · 코드북은 그대로
    연구자 화면 37 (11/11 오후, 허준영): 지혜 36(이지혜 · Claude) + 준영 36 합침 — ① ③ 실제 진행(파일럿 배정 meta/pilotAssign)에도 [실제 기록에 맞추기](arms · cells · total만 다시 씀 · 미니 meta/pilotAssign/mini는 그대로) + 균형 카드 ③에 '자리만 잡힌 배정' 경고 · 완료가 덜 찬 칸 &cell=N 링크(배정이 막혔을 때 비상용) ② v22.33부터 본 설문 시작(11/12 18:00) 전 기록은 손 표시가 없으면 기본 ③ 실제 진행(파일럿 · 본 설문 링크 모두 · 리허설 · 미리보기 빼고 · autoRunOf) ③ 과업 표 time_excluded 열 ④ 질문 목록의 V20 대조표 · '시작 전 점검' 탭 숨김 ⑤ 코드북 v22.36(지혜 수정 7줄 — 버전 표기는 배포된 study 값으로 바로잡음: v22.32 = V22_FB_31 · v22.33 = V22_FB_36 · 최종 v22.36 · 아영 로컬 FB_32–35는 study v22.30으로 찍힘) ⑥ 판정 버전: v22.36 = v22.33으로 셈(JUDGE_SAME_VER · 실제 진행 도중 교체 대비)
@@ -872,7 +873,7 @@ function both(auto, manual) { if (auto === false || manual === false) return fal
 function timeFixed(s) { const v = studyVerNum(s); return v[0] > 22 || (v[0] === 22 && v[1] >= 33); }   // V36: D66(시간 1회차 기준)이 들어간 실험물 — v22.33(준영 FB_36) · v22.36(최종)
 function studyVerNum(s) { const m = /v(\d+)(?:\.(\d+))?/.exec(String((s && s.study) || '')); return m ? [+m[1], +(m[2] || 0)] : [0, 0]; }
 function studyVerKey(s) { const v = studyVerNum(s); return `v${v[0]}.${v[1]}`; }
-const JUDGE_SAME_VER = { 'v22.36': 'v22.33' };   // V37 (11/11): 판정에서 같은 버전으로 셈 — 최종 v22.36은 v22.33(V22_FB_36)에서 결과 로딩 제목 ‘다시’ · 상품 이름 줄만 바뀜(조건 · 문항 · 시간 기록 그대로 · 아영) → 실제 진행 도중에 바꿔도 ③ 판정에 두 버전을 같이 셈 · 받은 v22.36이 그 둘 말고도 바뀌었으면 { }로 비움
+const JUDGE_SAME_VER = { 'v22.34': 'v22.33', 'v22.36': 'v22.33' };   // V40: v22.34(V22_FB_37) = v22.33 + 파일럿 링크 마감만 —   // V37 (11/11): 판정에서 같은 버전으로 셈 — 최종 v22.36은 v22.33(V22_FB_36)에서 결과 로딩 제목 ‘다시’ · 상품 이름 줄만 바뀜(조건 · 문항 · 시간 기록 그대로 · 아영) → 실제 진행 도중에 바꿔도 ③ 판정에 두 버전을 같이 셈 · 받은 v22.36이 그 둘 말고도 바뀌었으면 { }로 비움
 function judgeVerKey(s) { const k = studyVerKey(s); return JUDGE_SAME_VER[k] || k; }
 function latestVerOnly(list) {   // V29: 판정은 그 단계에서 가장 새 실험물 버전으로 한 사람만 — 팀 시트 규칙(고치기 전 버전은 판정에서 뺌 · 예: ② R1009 v22.23) · V37: 버전은 judgeVerKey로 셈
   list = list || []; if (!list.length) return { keep: [], old: [], ver: '' };
