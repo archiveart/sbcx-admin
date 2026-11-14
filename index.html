@@ -227,6 +227,9 @@ body{word-break:keep-all;overflow-wrap:anywhere}
 .menu-d{position:relative;display:inline-block}.menu-d>summary{list-style:none;cursor:pointer}.menu-d>summary::-webkit-details-marker{display:none}
 .menu-p{position:absolute;z-index:30;top:calc(100% + 6px);left:0;background:var(--surface);border:1px solid var(--pb);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:8px;display:flex;flex-direction:column;gap:4px;min-width:180px;white-space:nowrap}.menu-r{left:auto;right:0}
 details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}details.card.rh-d>summary:before{flex:none;padding-left:16px}details.card.rh-d>summary>.ch{flex:1;min-width:0;padding-left:4px}details.card.rh-d:not([open])>summary>.ch{padding-bottom:16px}
+/* 화면 50: 질문 목록 — 긴 배지가 글 칸을 눌러 세로로 한 글자씩 나오던 것 · 설명은 글 아래 회색 줄로 */
+.qitem{grid-template-columns:110px minmax(0,1fr) auto}.qitem>span:last-child{max-width:240px}.qitem .badge{white-space:normal;height:auto;min-height:22px;padding:3px 8px;line-height:1.4}.qitem .qnote{display:block;margin-top:4px;font-size:12px;color:var(--ink-3);line-height:1.5}
+.card:has(>.qitem){container-type:inline-size}@container (max-width:520px){.qitem{grid-template-columns:96px minmax(0,1fr)}.qitem>span:last-child{grid-column:2;justify-self:start;max-width:100%}}
 </style>
 </head>
 <body>
@@ -255,7 +258,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 49</b> · 11/14 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 단계별 보기 · 4명 점검은 본 설문으로 셈 · 조작점검 표 · 색은 역할로만 · 실험물 v22.48(FB_48) · 코드북 v22.47 팀 최종 + 화면 줄</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 50</b> · 11/14 · 실험물 v22.53(FB_53) · 본 설문 번호 M001~ · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -308,6 +311,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 50 (11/14 새벽, 허준영): 실험물 V22_FB_53(v22.53 · 아영 FB_49–53: 사후 추천 화면 · 22번 줄기 · 보기 '내가 먼저 / AI가 먼저' · M2 7 · 9번 문구 · 검색 뒤 순서 · 자동 스크롤 로그 auto_scroll · 연습 삭제) — 저장 열 · 코드 그대로 · [코드북 내려받기] = 팀 코드북 v22.53 줄 + 화면 줄 · 응답 상세 · 조작점검 표의 22번 글자 새 보기로 · 매일 점검 단계 줄 = 소프트 런치만 · 본 설문 참여 번호 M001~(실험물 배포본 ⑥ · 파일럿 ② · 4명 점검 · 리허설은 R 그대로) · 질문 목록 긴 설명은 글 아래 회색 줄(세로 글자 고침)
    연구자 화면 49 (11/14, 허준영 · 팀 요청 '밖으로 너무 꺼내져 있음'): 응답 보기 = 본 설문 / 파일럿 두 갈래(작은 칩: 4명 점검 · 소프트 런치 · 전체 배포 뒤 / 파일럿 ② · 지난 파일럿) + 그 밖(리허설 · 테스트 · 미리보기) · 상태 칩 → 고르는 칸 · 내려받기 → 메뉴 하나 · 카드의 단계 단추 뺌 · 매일 점검 = 소프트 런치 + 매일 한 줄(본 설문 시작 날부터) · 연결 리허설 카드 → 설정 탭 맨 위 · 동의 기록 = 사용 / 제외 + [정리 대상 휴지통으로](테스트 · 미리보기 · 예전 버전 리허설 · 되살리기 가능) · 휴지통 '이유' 열
    연구자 화면 48 (11/13 오후, 허준영 · 팀 결정): 4명 점검(?src=pilot4)을 본 설문으로 셈 — 본 설문 시작 시각과 상관없이 main · 단계 줄 '4명 점검'은 그 4명만 따로 보는 칸 · 소프트 런치 판정(18명)에서는 뺌 · CSV run_stage pilot4 · 링크 칸 3 · 8 · 11 · 16(팀 표 · 4조건에 1명씩 · 모두 행동→결정) · 순서는 그대로(4명 → 파일럿 ② → 소프트 런치 → 본 설문) · 인원 제한 없음(단계 숫자는 목표)
    연구자 화면 47 (11/13 오후, 허준영): '4명 점검' 단계(단계 줄 맨 앞) — 파일럿 ② 앞 4명 · 링크 ?src=pilot4&cell=1 · 7 · 12 · 14(4조건 목적형 · 탐색형 × 사전 · 사후에 1명씩 · 결정→행동 / 행동→결정 2명씩 · 칸 고정이라 본 설문 칸 수 안 올림 · 실험물 그대로 · 번호는 Firebase 순번) · 구분 pilot4(본 설문 집계 · 판정에서 빠짐) · 판정은 파일럿 ② 기준과 같은 줄 · 조작점검 표 · CSV run_stage pilot4 · 미리보기(?dev=1)로 모으지 않는 까닭: 브라우저마다 번호가 R001부터라 Firebase에서 서로 덮어씀 · 로딩 0.3초 등 화면이 실제와 다름 · 조건 배정 없음
@@ -425,9 +429,9 @@ const BLOCKS = {
     { code: 'Q12', text: '이번 추천에서 무엇을 추천받을지는 나에게 달려 있다고 느꼈다' },
     { code: 'Q13', text: '이 앱의 추천은 내가 손을 댈 수 없는 것처럼 느껴졌다', rev: true }] },   // V22_FB_3(v22.2): '느꼈다' → '느껴졌다'
   M2: { where: '[완료] 직후(결과 본 뒤) · 쇼핑마다', items: [
-    { code: 'Q14', text: '추천을 내 뜻에 맞추는 데 정신적 노력이 많이 들었다' },
+    { code: 'Q14', text: '추천을 내 뜻대로 바꾸는 데 정신적 노력이 많이 들었다' },
     { code: 'Q15', text: '무엇을 빼거나 바꿀지 정하는 데 애를 많이 써야 했다' },   // V22_FB_22(아영 11/8)에서 원래 문구로 되돌림 · FB_16 문구('추천 맞추기 화면에서 빼거나 바꿀 것을…')는 실험물 CONFIG.Q15_ALT true일 때만
-    { code: 'Q16', text: '추천을 맞추는 동안 답답하거나 짜증이 났다' }] },
+    { code: 'Q16', text: '추천을 내 뜻대로 바꾸는 동안 답답하거나 짜증이 났다' }] },
   FIT0: { where: '[완료] 직후(결과 본 뒤) · 사후 집단만', items: [{ code: 'Q17', text: '처음 보여 준 6개는 지금 내 쇼핑에 잘 맞았다' }] },
   Y3: { where: '결과 본 뒤 · 쇼핑마다', items: [
     { code: 'Q18', text: '이 앱의 추천은 나에게 맞는 상품을 찾아 주려는 것 같다' },
@@ -455,7 +459,7 @@ const ATT0 = { code: 'ATT0', no: '3', text: "이 문항에는 '5'를 골라 주�
 const ATT34 = ATT30;
 const MC_ITEMS = [
   { code: 'Q28', key: 'MC_TYPE', name: '방식', q: '이번 쇼핑의 추천 맞추기 화면에서 내가 한 일은', opts: { D: '원하지 않는 것을 제외했다', A: '원하는 조건을 정했다' }, checks: '바꾼 방식(결정/행동) 확인 · 쇼핑마다 · v22.47 최종(D99 · 11/13 지혜)부터 보기 문구 — v22.45–47 첫 판은 추천에서 일부를 제외했다 / 추천에 적용할 조건을 정했다 · v22.44까지 원하지 않는 것을 뺐다 / 원하는 조건을 골랐다', perTask: true },   // V22_FB_7(11/7) 문구 · 저장 값 D/A는 그대로
-  { code: 'Q29', key: 'MC_TIME', name: '때', q: '이번 쇼핑에서 빼거나 고른 것은 언제였나요?', opts: { pre: 'AI가 고른 상품을 보기 전에 (홈 → 검색 → [상품 추천받기] → 빼거나 고르기 → AI가 고른 상품)', post: 'AI가 고른 상품을 보면서 (홈 → 검색 → [상품 추천받기] → AI가 고른 상품 → 빼거나 고르기 → 바뀐 상품)' }, checks: '바꾼 때(사전/사후) 확인 · 쇼핑마다 (V13부터) · 21 · 22번 위 안내 "방금 한 쇼핑을 처음부터 떠올리며 골라 주세요. [다시 해 보기]를 눌렀다면, 처음 쇼핑했을 때를 떠올려 답해 주세요."(v22.45 · FB_45) · 보기 아래 흐름 줄은 검색 흐름(FB_46) · v22.44까지 보기 = AI 추천 결과가 나오기 전에 / 본 뒤에(홈[추천받기] → …)', perTask: true },   // V22_FB_25(아영 11/8) 문구 · 보기 아래 회색 흐름 줄 · 저장 값 pre/post 그대로 · V22_FB_21 문구('이번 쇼핑에서 나는 · 보기 전에 정했다 / 본 뒤에 고쳤다')는 되돌림(FB_7 '그 화면에…'는 되돌림) · 저장 값 pre/post 그대로 · [다시 해 보기]한 사전 참여자는 2회차 전에 결과를 봤으므로 n_retry로 나눠 볼 것
+  { code: 'Q29', key: 'MC_TIME', name: '때', q: '이번 쇼핑은 어떤 순서였나요?', opts: { pre: '내가 먼저 빼거나 고른 뒤, AI가 상품을 골랐다 (홈 → 검색 → [상품 추천받기] → 빼거나 고르기 → AI가 고른 상품)', post: 'AI가 먼저 상품을 고른 뒤, 내가 빼거나 골랐다 (홈 → 검색 → [상품 추천받기] → AI가 고른 상품 → 빼거나 고르기 → 바뀐 상품)' }, checks: '바꾼 때(사전/사후) 확인 · 쇼핑마다 (V13부터) · 21 · 22번 위 안내 "방금 한 쇼핑을 처음부터 떠올리며 골라 주세요. [다시 해 보기]를 눌렀다면, 처음 쇼핑했을 때를 떠올려 답해 주세요."(v22.45 · FB_45) · 보기 아래 흐름 줄은 검색 흐름(FB_46) · v22.44까지 보기 = AI 추천 결과가 나오기 전에 / 본 뒤에(홈[추천받기] → …)', perTask: true },   // V22_FB_25(아영 11/8) 문구 · 보기 아래 회색 흐름 줄 · 저장 값 pre/post 그대로 · V22_FB_21 문구('이번 쇼핑에서 나는 · 보기 전에 정했다 / 본 뒤에 고쳤다')는 되돌림(FB_7 '그 화면에…'는 되돌림) · 저장 값 pre/post 그대로 · [다시 해 보기]한 사전 참여자는 2회차 전에 결과를 봤으므로 n_retry로 나눠 볼 것
   { code: 'Q27', key: 'MC_REFLECT', name: '반영', q: '최종 결과에 내가 뺀 것이나 고른 조건이 반영돼 있었다', opts: { yes: '예', no: '아니오' }, checks: '반영 확인 · 쇼핑마다', perTask: true },   // V22_FB_7 문구
 ];
 const PREF_ITEM = { code: 'Q32', q: '다음에 쇼핑할 때 쓴다면 어느 방식을 고르겠어요?', opts: { D: '원하지 않는 것을 빼기', A: '원하는 조건을 고르기' } };   // V22_FB_7(11/7) 보기 문구 · 저장 값 D/A 그대로
@@ -554,7 +558,7 @@ const CONSENT_TEXT_V1 = [   // consent-v3 (실험물 V13 consentBox) — 앞 둘
 ];
 const SCHEMA = `Firebase 실시간 DB (실험물 V16-FB 가 쓰고, 이 화면이 읽음)
 meta/cellCounts            칸별 배정 수 {c1..c16, total, lastCell} — 트랜잭션으로 올림
-meta/seq/{R1|R901}         참여 번호 순번 (본 설문 R001~ · 파일럿 R901~ · 인터뷰 P · 합성 사용자 S와 구분)
+meta/seq/{M1|R1|R901}      참여 번호 순번 (본 설문 M001~ · 11/14 배포본부터 / 파일럿 ② · 4명 점검 · 그 전 본 설문 링크 R001~ · 파일럿 R901~ · 인터뷰 P · 합성 사용자 S와 구분)
 participants/{pid}.src     모집 경로 — 링크 뒤 ?src=friend(지인) · ?src=agency(업체) · 없으면 빈칸 (연구자 화면에서 바꿀 수 있음)
 meta/pilot · meta/ops      이 화면에서 고른 파일럿 판정 · 시작 전 점검 체크 · ops.w9(교수님 수정 D번호 체크) · ops.dvLock(수집 중 종속변수 잠금 auto/on/off)
 meta/rules                 자동 제외 규칙 {att(T0 주의 문항), fast, fastSec, fastLocked(사전등록 숫자 고정), dup, mcFails}
@@ -1321,7 +1325,7 @@ function rowsToCSV(rows) {
   rows.forEach(r => Object.keys(r).forEach(k => { if (!seen.has(k)) { seen.add(k); cols.push(k); } }));
   return toCSV([cols].concat(rows.map(r => cols.map(c => r[c]))));
 }
-function pidCmp(a, b) { return String(a).localeCompare(String(b), 'en', { numeric: true }); }   // R001 < R180 < R901 < T### (글자, 그다음 숫자 순)
+function pidCmp(a, b) { return String(a).localeCompare(String(b), 'en', { numeric: true }); }   // M001 < M180 < R001 < R901 < T### (글자, 그다음 숫자 순 · 화면 50: 본 설문 M)
 function exportKind() { return S.sel.exportKind || 'all'; }   // 내려받을 구분(응답 보기 구분 칩 · 설정 탭 내려받기 선택과 같이 움직임) · 'all' = 전체(kind 열로 나눔)
 function exportScope() {   // 내보낼 참가자: 휴지통 제외 · 고른 구분만. 미리보기(dev)·제외 표시는 열로 남긴다. 줄 순서는 참여 번호 순(R001 → R180 → R901~ → T###)
   return sessionsKind(exportKind()).slice().sort((a, b) => pidCmp(a.pid, b.pid));
@@ -1478,7 +1482,7 @@ function codebookRowsBase() {   // 화면 45: 겉은 v5_stage.js의 codebookRows
   const rows = [];
   const push = (no, code, q, table, level, values, note, item) => rows.push({ no: no ?? '', code, item: item || itemText(q) || '', survey: q || '', table, level, values: values == null ? '1~7' : values, note: note || '' });
   push('—', 'src', '', '모든 표 (셋째 열)', '배정', 'friend = 지인 모집 · agency = 리서치 업체 모집 · think = 파일럿 ① 인지 인터뷰 · pre = 파일럿 ② 자극 사전검사 · run = 파일럿 ③ 실제 진행 · mini = 미니테스트(11/10 · 4칸 × 과업 순서) · rehearsal = 연결 리허설 · 빈칸 = 링크에 ?src= 없음', '본 설문 링크 뒤 ?src=friend / ?src=agency · 파일럿은 ?pilot=1&src=think / pre / run · 리허설은 ?pilot=1&src=rehearsal&cell=N · 연구자 화면 kind(구분) 열은 이 값으로 ①②③을 나눔 · 응답 보기에서 바꿀 수 있음');
-  push('—', 'name · pid · pilot', '', '모든 표 (첫 두 열)', '배정', 'name = 연구자가 \'응답 보기\'에 적은 이름표(파일럿 · 미리보기처럼 누구인지 아는 사람만 · 본 설문 참가자는 익명이라 빈칸) · pid = 참여 번호 = R + 순번 · 본 설문 링크는 1부터(R001~ · 조원 테스트로 R089까지 씀 · 순번은 다시 시작하지 않음 — 기록이 참여 번호로 저장돼 같은 번호면 덮어씀) · v22.47 배포본(PID_SAFE_LOCAL): Firebase 순번을 못 받으면 RL로 시작하는 겹치지 않는 번호(RL + 7자 · 예: RLE6QVJH) — 예전엔 그 브라우저의 첫 번호 R001이 붙어 덮어쓰기 위험(11/12 20:29 R001) · 파일럿 링크(?pilot=1: 인지 인터뷰 · 사전검사 · 실제 진행 · 연결 리허설)는 901부터 한 줄로 이어 붙는 순번이라 R999를 넘어 네 자리도 됨(예: 사전검사 R1044 · R1050 · 리허설 R1012–R1043) · 미리보기 T### (인터뷰 P · 합성 사용자 S와 구분)', '장표 5.7 · 설문은 이름을 받지 않음 · 번호만으로 단계를 알 수 없으니 kind · src 열로 구분 · R070 = 미니테스트 참가자(시트 인터뷰 탭 R1130)가 일반 링크로 들어온 기록(src 빈칸 · assign_source firebase) → 11/10 밤 기록을 R1130으로 옮기고 미니테스트로 표시(R1130에 movedFrom = R070 · R070 번호는 이제 없음 · 본 설문 · 집계에서 빠짐)');
+  push('—', 'name · pid · pilot', '', '모든 표 (첫 두 열)', '배정', 'name = 연구자가 \'응답 보기\'에 적은 이름표(파일럿 · 미리보기처럼 누구인지 아는 사람만 · 본 설문 참가자는 익명이라 빈칸) · pid = 참여 번호 · 11/14 배포본(FB_53 ⑥)부터 본 설문 링크(?src=friend · agency · 빈칸)는 M + 순번(M001~ · 순번 meta/seq/M1 따로 · 임시 번호 ML…) · 파일럿 ②(?src=pilot2) · 4명 점검(?src=pilot4) · 파일럿 · 리허설 · 미리보기는 R 그대로 · 그 전 본 설문 링크는 R + 순번 · 본 설문 링크는 1부터(R001~ · 조원 테스트로 R089까지 씀 · 순번은 다시 시작하지 않음 — 기록이 참여 번호로 저장돼 같은 번호면 덮어씀) · v22.47 배포본(PID_SAFE_LOCAL): Firebase 순번을 못 받으면 RL로 시작하는 겹치지 않는 번호(RL + 7자 · 예: RLE6QVJH) — 예전엔 그 브라우저의 첫 번호 R001이 붙어 덮어쓰기 위험(11/12 20:29 R001) · 파일럿 링크(?pilot=1: 인지 인터뷰 · 사전검사 · 실제 진행 · 연결 리허설)는 901부터 한 줄로 이어 붙는 순번이라 R999를 넘어 네 자리도 됨(예: 사전검사 R1044 · R1050 · 리허설 R1012–R1043) · 미리보기 T### (인터뷰 P · 합성 사용자 S와 구분)', '장표 5.7 · 설문은 이름을 받지 않음 · 번호만으로 단계를 알 수 없으니 kind · src 열로 구분 · R070 = 미니테스트 참가자(시트 인터뷰 탭 R1130)가 일반 링크로 들어온 기록(src 빈칸 · assign_source firebase) → 11/10 밤 기록을 R1130으로 옮기고 미니테스트로 표시(R1130에 movedFrom = R070 · R070 번호는 이제 없음 · 본 설문 · 집계에서 빠짐)');
   push('—', 'cell · W · X2 · order · setOrder', '', '사람 표', '배정', 'cell 1~16 · W 목적형/탐색형 · X2 사전/사후 · order DA/AD · setOrder 가나/나가', '과업 표에는 type · task_order · set');
   push('—', 'total_sec · status · screen_reason · restart_of · assign_source', '', '사람 표', '기록', '초 · status = complete(완료) / restarted(재시작) / screened_out(참여 조건으로 종료) / incomplete(하다가 나감) · screen_reason = age(만 19세 미만) / age_over(만 40세 이상) / shop(구매 0회) / att(3번 주의 점검 ATT0 오답 → 그 자리에서 종료 · V22_FB_15 · D48) · assign_source = firebase(칸 수 세어 배정) / firebase-pilot(파일럿 균형 배정 · V22_FB_23부터) / firebase-mini(미니테스트 링크 · v22.32부터 4칸 × 과업 순서 여덟 묶음 · v22.31은 사후 네 묶음) / url-cell(링크로 고정) / random…(배정 실패 → 배정 확인 배지)', '종료(screened_out)된 사람은 사람 표에만 남고 응답 행(responses)은 없음 — 3번 오답 종료도 같음 · 재시작 · 조건 미달 기록은 집계에서 뺌 (5.6 ⑧) · restart_of = [처음으로] 누른 앞 기록 번호(번호가 확정된 뒤에만) · 연구자 화면 응답 보기에는 status가 한글(완료 · 재시작 · 종료 · 하다가 나감)로 보임');
   push(1, 'DEM_AGE', 'Q2', '사람 표', '자극 전 · 스크리닝 화면 (W10 1번)', '숫자', '만 19–39세가 아니면 여기서 종료(screened_out · V22: age / age_over)');
@@ -2075,7 +2079,7 @@ function renderItems() {
     <div class="card"><div class="ch"><h3>상황 카드 (W)</h3><span class="badge b-mute">자극 전 · 그림 1장 + 글</span></div><div class="muted">목적형 · 탐색형 상황 글(본연구 방법 4.4-1 공통 문장 포함) · V20: 팀 제공 그림 1장(두 상황 같은 그림) · W 조작점검은 과업 1 끝으로 이동(23번)</div></div></div>
   <div class="kicker" style="margin-bottom:8px">쇼핑마다 (추천 바꾼 직후 → 결과 본 뒤) — [설문 시작하기] 뒤에 나옴</div>
   <div class="grid g2" style="margin-bottom:14px">${block('M1')}${block('M2')}${block('FIT0')}${block('Y3')}${block('Y1', STUDY.att30At !== 'end' ? att30Row('둘째 쇼핑의 이 화면에만 한 번') : '')}${block('Y2')}${block('FIT')}${block('CHG')}
-    <div class="card"><div class="ch"><h3><span class="mono" style="color:var(--a1)">20 · 21 · 22</span> 확인 질문 (Q27 · Q28 · Q29)</h3><span class="badge b-mute">결과 본 뒤 · 쇼핑 끝 · 화면 다시 보기 없음</span></div>${MC_ITEMS.map(m => `<div class="qitem"><span class="code">${esc(w10(m.code))} · ${esc(m.perTask ? 'task{n}_' + m.code : m.code)}</span><span class="txt">${esc(m.q)} — ${esc(Object.entries(m.opts).map(([k, v]) => `${k} = ${v}`).join(' / '))}</span><span class="badge b-mute">${esc(m.checks)}</span></div>`).join('')}</div>
+    <div class="card"><div class="ch"><h3><span class="mono" style="color:var(--a1)">20 · 21 · 22</span> 확인 질문 (Q27 · Q28 · Q29)</h3><span class="badge b-mute">결과 본 뒤 · 쇼핑 끝 · 화면 다시 보기 없음</span></div>${MC_ITEMS.map(m => `<div class="qitem"><span class="code">${esc(w10(m.code))} · ${esc(m.perTask ? 'task{n}_' + m.code : m.code)}</span><span class="txt">${esc(m.q)} — ${esc(Object.entries(m.opts).map(([k, v]) => `${k} = ${v}`).join(' / '))}<span class="qnote">${esc(m.checks)}</span></span><span class="badge b-mute">${m.perTask ? '쇼핑마다' : '둘째 쇼핑 끝'}</span></div>`).join('')}</div>
     ${block('WMC')}</div>
   <div class="kicker" style="margin-bottom:8px">두 쇼핑 끝 → 마무리</div>
   <div class="grid g2" style="margin-bottom:14px">${block('REAL', (STUDY.att30At === 'end' ? att30Row('두 과업 종료 후 · 현실감(25번)과 같은 화면') : '') + `<div class="qitem"><span class="code">XIMM</span><span class="txt">${esc(BLOCKS.XIMM.items[0].text)} <span class="muted">— 파일럿(?pilot=1) 링크에서만 이 화면에 함께 나옴 (V22) · 본 조사 빈칸 · 판정표 참고 줄</span></span><span class="badge b-mute">파일럿만</span></div>`, true)}<div class="card"><div class="ch"><h3><span class="mono" style="color:var(--a1)">26 · Q32</span> 어느 방식이 좋았나</h3><span class="badge b-mute">두 쇼핑 끝</span></div>${OTHER_ITEMS.slice(3).map(i => `<div class="qitem"><span class="code">${esc(no(i.code))}</span><span class="txt">${esc(i.text)}</span><span class="badge b-mute">${esc(i.v)}</span></div>`).join('')}</div>${block('END')}</div>
@@ -2291,10 +2295,10 @@ function clearConfig() { localStorage.removeItem('moa_fb_config'); toast('저장
 function toggleDemoView() { if (S.mode !== 'fb') return; S.viewDemo = !S.viewDemo; if (S.viewDemo && !S.demoCache) S.demoCache = makeSample(); setConn(S.viewDemo ? 'demo' : (S.connected ? 'on' : 'err'), (S.config || {}).projectId); renderAll(); }
 function seedSample() { S.demoCache = makeSample(); if (S.mode !== 'fb') { toast('샘플을 다시 만들었습니다'); } else { S.viewDemo = true; setConn('demo'); toast('샘플 자료로 봅니다'); } renderAll(); }
 
-/* 연구자 화면 45 (11/13): 팀 최종 코드북 v22.47(지혜 · 11/13 · FB_47 최종 D89 · D98–D108 반영)의 줄을 그대로 씀 — 연구자 화면 [코드북 내려받기]가 팀 파일과 같은 글이 되게.
-   빼고 화면 값을 쓰는 줄: 'name · pid · pilot'(번호 R089까지 · RL 번호) · 'kind · kind_ko'(pilot2 · p2m · legacy) — 화면이 더 새 사실.
+/* 연구자 화면 50 (11/14): 팀 코드북 v22.53(아영 FB_49–53 반영 · 11/14)의 줄을 그대로 씀 — 연구자 화면 [코드북 내려받기]가 팀 파일과 같은 글이 되게.
+   (화면 45–49는 팀 v22.47) 빼고 화면 값을 쓰는 줄: 'name · pid · pilot'(RL 번호) · 'kind · kind_ko'(pilot2 · p2m · legacy) — 화면이 더 새 사실.
    팀 파일에 없는 화면 줄(time_excluded · debrief_q10–13 · run_stage)은 그대로 남김. */
-const TEAM_CB_47 = {
+const TEAM_CB = {
 "src": {
 "no": "—",
 "code": "src",
@@ -2363,7 +2367,7 @@ const TEAM_CB_47 = {
 "table": "과업 표",
 "level": "[완료] 직후 (결과 본 뒤 · M1 · M2 먼저)",
 "values": "1~7",
-"note": ""
+"note": "v22.52(FB_52): 4–6번 화면 안내 2줄 '방금 추천을 맞춘 화면을 …' · '결과보다 추천을 맞추던 과정을 …' → '방금 추천을 바꾼 화면을 떠올리며 답해 주세요.' · '결과보다 추천을 바꾸던 과정을 떠올리며, 각 문장에 얼마나 동의하는지 골라 주세요.'(7–9번과 같게) · 4–6번 문항 글자 · 척도 · 코드 그대로"
 },
 "M1_2": {
 "no": "5",
@@ -2388,12 +2392,12 @@ const TEAM_CB_47 = {
 "M2_1": {
 "no": "7",
 "code": "M2_1",
-"item": "추천을 내 뜻에 맞추는 데 정신적 노력이 많이 들었다",
+"item": "추천을 내 뜻대로 바꾸는 데 정신적 노력이 많이 들었다",
 "survey": "Q14",
 "table": "과업 표",
 "level": "[완료] 직후 (결과 본 뒤 · M1 · M2 먼저)",
 "values": "1~7",
-"note": ""
+"note": "v22.49(FB_49): 문구 '추천을 내 뜻에 맞추는 데 정신적 노력이 많이 들었다' → '추천을 내 뜻대로 바꾸는 데 정신적 노력이 많이 들었다' · 7–9번 화면 안내 2줄도 '맞춘 · 맞추던' → '바꾼 · 바꾸던' · 척도 · 코드 · 열 Q14 그대로 → v22.48 이전 응답과 비교할 때는 study 열로 나눠 보기"
 },
 "M2_2": {
 "no": "8",
@@ -2403,17 +2407,17 @@ const TEAM_CB_47 = {
 "table": "과업 표",
 "level": "[완료] 직후 (결과 본 뒤 · M1 · M2 먼저)",
 "values": "1~7",
-"note": ""
+"note": "v22.49–53 문구 그대로(7 · 9번만 바뀜)"
 },
 "M2_3": {
 "no": "9",
 "code": "M2_3",
-"item": "추천을 맞추는 동안 답답하거나 짜증이 났다",
+"item": "추천을 내 뜻대로 바꾸는 동안 답답하거나 짜증이 났다",
 "survey": "Q16",
 "table": "과업 표",
 "level": "[완료] 직후 (결과 본 뒤 · M1 · M2 먼저)",
 "values": "1~7",
-"note": ""
+"note": "v22.49(FB_49): 문구 '추천을 맞추는 동안 답답하거나 짜증이 났다' → '추천을 내 뜻대로 바꾸는 동안 답답하거나 짜증이 났다' · 척도 · 코드 · 열 Q16 그대로 → v22.48 이전 응답과 study 열로 나눠 보기"
 },
 "FIT0": {
 "no": "10",
@@ -2538,12 +2542,12 @@ const TEAM_CB_47 = {
 "MC_TIME · MC_TIME_ok": {
 "no": "22",
 "code": "MC_TIME · MC_TIME_ok",
-"item": "이번 쇼핑에서 빼거나 고른 것은 언제였나요? — AI가 고른 상품을 보기 전에 (홈 → 검색 → [상품 추천받기] → 빼거나 고르기 → AI가 고른 상품) / AI가 고른 상품을 보면서 (홈 → 검색 → [상품 추천받기] → AI가 고른 상품 → 빼거나 고르기 → 바뀐 상품)",
+"item": "이번 쇼핑은 어떤 순서였나요? — 내가 먼저 빼거나 고른 뒤, AI가 상품을 골랐다 (홈 → 검색 → [상품 추천받기] → 빼거나 고르기 → AI가 고른 상품) / AI가 먼저 상품을 고른 뒤, 내가 빼거나 골랐다 (홈 → 검색 → [상품 추천받기] → AI가 고른 상품 → 빼거나 고르기 → 바뀐 상품)",
 "survey": "Q29",
 "table": "사람 표 (장표 A11-8 그대로) · 과업 표",
 "level": "사람 표 = 둘째 쇼핑 끝 답 · 과업 표 = 쇼핑마다 (W10 22번)",
-"values": "pre = AI가 고른 상품을 보기 전에(사전) · post = AI가 고른 상품을 보면서(사후) · ok 1/0 — 문구는 V22_FB_25(아영 11/8)부터 \"이번 쇼핑에서 빼거나 고른 것은 언제였나요?\"(보기 아래 흐름 줄) · V22_FB_21–24는 \"이번 쇼핑에서 나는 · 보기 전에 정했다 / 본 뒤에 고쳤다\" · FB_32(D69)부터(파일 버전 표시는 v22.30으로 찍힘 · FB_36 = v22.36부터 바로잡음) 21 · 22번 위 회색 안내 끝에 한 줄 “[다시 해 보기]를 눌렀다면, 처음 빼거나 고를 때를 떠올려 답해 주세요.” — 문항 · 보기 · 정답 코드(pre/post) · 열 Q29는 그대로 · 판정 · 분석에서 [다시 해 보기] 누름(n_retry 1+) / 안 누름으로 나눠 보기",
-"note": "장표 A11-8 #29(사람 표 · MC_TIME · 과업 2 끝)와 같게 사람 표에 둘째 쇼핑 끝 답을 둠. V13은 쇼핑마다 물으므로 과업 표에 쇼핑별 MC_TIME, 사람 표에 MC_TIME_both_ok(두 번 다 맞음 1/0)를 더 둠 · v22.47: 보기 ‘AI 추천 결과가 나오기 전에 / 본 뒤에’ → ‘AI가 고른 상품을 보기 전에 / 보면서’ · 흐름 줄을 검색 흐름으로 · 흐름 줄의 ‘빼거나 고르기’만 굵게(D100) · 코드 pre / post · 정답 그대로"
+"values": "pre = 내가 먼저 빼거나 고른 뒤, AI가 상품을 골랐다(사전) · post = AI가 먼저 상품을 고른 뒤, 내가 빼거나 골랐다(사후) · ok 1/0 — pre = AI가 고른 상품을 보기 전에(사전) · post = AI가 고른 상품을 보면서(사후) · ok 1/0 — 문구는 V22_FB_25(아영 11/8)부터 \"이번 쇼핑에서 빼거나 고른 것은 언제였나요?\"(보기 아래 흐름 줄) · V22_FB_21–24는 \"이번 쇼핑에서 나는 · 보기 전에 정했다 / 본 뒤에 고쳤다\" · FB_32(D69)부터(파일 버전 표시는 v22.30으로 찍힘 · FB_36 = v22.36부터 바로잡음) 21 · 22번 위 회색 안내 끝에 한 줄 “[다시 해 보기]를 눌렀다면, 처음 빼거나 고를 때를 떠올려 답해 주세요.” — 문항 · 보기 · 정답 코드(pre/post) · 열 Q29는 그대로 · 판정 · 분석에서 [다시 해 보기] 누름(n_retry 1+) / 안 누름으로 나눠 보기",
+"note": "장표 A11-8 #29(사람 표 · MC_TIME · 과업 2 끝)와 같게 사람 표에 둘째 쇼핑 끝 답을 둠. V13은 쇼핑마다 물으므로 과업 표에 쇼핑별 MC_TIME, 사람 표에 MC_TIME_both_ok(두 번 다 맞음 1/0)를 더 둠 · v22.47: 보기 ‘AI 추천 결과가 나오기 전에 / 본 뒤에’ → ‘AI가 고른 상품을 보기 전에 / 보면서’ · 흐름 줄을 검색 흐름으로 · 흐름 줄의 ‘빼거나 고르기’만 굵게(D100) · 코드 pre / post · 정답 그대로 · v22.49(FB_49): 줄기 '이번 쇼핑에서 빼거나 고른 것은 언제였나요?' → '이번 쇼핑은 어떤 순서였나요?' · 보기 ① 'AI가 고른 상품을 보기 전에' → '내가 먼저 빼거나 고른 뒤, AI가 상품을 골랐다'(pre) · ② 'AI가 고른 상품을 보면서' → 'AI가 먼저 상품을 고른 뒤, 내가 빼거나 골랐다'(post) · 보기 아래 흐름 줄 · 코드 pre / post · 열 Q29 · 정답 그대로 · '내가 먼저' · 'AI가 먼저' 굵게(v22.49–52 파랑 → v22.53 검정 · 글자 그대로) · 실험물 코드북 내려받기에는 강조 표시([[ ]]) 없이 글자만 · v22.48 이전 응답과 정답률 비교할 때 study 열로 나눠 보기"
 },
 "W_1": {
 "no": "23",
@@ -2553,7 +2557,7 @@ const TEAM_CB_47 = {
 "table": "사람 표",
 "level": "과업 1 끝 · 조작점검 뒤 (W10 23번 · V20: 1문항 · 과거형)",
 "values": "1 전혀 구체적이지 않다 ~ 7 매우 구체적이다",
-"note": "W(쇼핑 목적) 조작점검 · 파일럿 판정 ③은 이 점수를 사람 단위로 · Q9 · Q10은 V20에서 삭제 · V22_FB_27(v22.29)부터 문구만 바뀜(이전: ‘앞의 쇼핑 상황에서 내 쇼핑 목표는 얼마나 구체적이었나요?’) · 위치 · 척도 · 코드 그대로 · 11/11 바뀐 문구 유지로 확정(미니테스트 9명이 이 문구로 W 통과: 목적 5.0 > 탐색 2.8 · 사람 8/9) · 상황 카드 라벨: FB_44(D78)부터 ‘상황 · 사러 왔어요’ / ‘상황 · 구경하러 왔어요’(22px) · 과업 1 앞 안내 한 줄(D79) · 문항 · 값은 그대로 · 실제 진행(v22.33)까지는 ‘상황’ 작은 라벨"
+"note": "W(쇼핑 목적) 조작점검 · 파일럿 판정 ③은 이 점수를 사람 단위로 · Q9 · Q10은 V20에서 삭제 · V22_FB_27(v22.29)부터 문구만 바뀜(이전: ‘앞의 쇼핑 상황에서 내 쇼핑 목표는 얼마나 구체적이었나요?’) · 위치 · 척도 · 코드 그대로 · 11/11 바뀐 문구 유지로 확정(미니테스트 9명이 이 문구로 W 통과: 목적 5.0 > 탐색 2.8 · 사람 8/9) · 상황 카드 라벨: FB_44(D78)부터 ‘상황 · 사러 왔어요’ / ‘상황 · 구경하러 왔어요’(22px) · 과업 1 앞 안내 한 줄(D79) · 문항 · 값은 그대로 · 실제 진행(v22.33)까지는 ‘상황’ 작은 라벨 · 상황 카드(목적형) 가격 칸: v22.48까지 '5만 원 안' → v22.49–51 '5만 원 이하 회색 니트' → v22.52부터 '5만 원 이하' · 목적형 카드 '무엇 · 언제 · 가격' 태그 · 상자 테두리 회색 → 연파랑(v22.50 · 탐색형 카드는 그대로) · 문항 · 척도 · 코드 그대로"
 },
 "ATT_END · ATT_END_ok": {
 "no": "24",
@@ -2643,7 +2647,7 @@ const TEAM_CB_47 = {
 "table": "행동 기록(log) · 응답 열 아님",
 "level": "클릭 기록",
 "values": "—",
-"note": "nudge_finger = 20초 손가락이 뜬 때(at: home / rec) · q_back = 설문 [← 이전]을 누른 때(from · to 화면 · 같은 과업 설문 안에서만, 답은 마지막 것만 저장) · retry의 restart 1 = 홈부터 다시(V22_FB_5부터 네 칸 모두 1) · 응답 표에 새 열은 없음 · 저장 열 · 문항 코드는 v22.1과 같음 · 6번(M1_3r · Q13) 문구만 느꼈다 → 느껴졌다 · V22_FB_27(v22.29) 새 로그 rec_loading = 사후 집단이 홈 [추천받기]를 누른 뒤 첫 추천 6개 앞 로딩이 시작된 때(task) · rec_open은 로딩이 끝나고 첫 6개가 뜬 때(사전은 [추천받기]를 누른 때 그대로) · FB_33부터(v22.36 포함) 로딩 2.8초(FB_32는 2.0초 · 등장 1.1초) · 로딩 뒤 상품 6개가 차례로 나오고(1.6초 · 그동안 눌러도 반응 없음) 사후 t_rec(조작 시간 시작) = rec_open + 1.6초 · 조작 뒤 결과 로딩은 ‘반영할 조건’ 칩 · 응답 표에 새 열은 없음 · v22.47 새 로그: app_intro_end = 쇼핑마다 처음 앱 인트로(1.5초)가 끝나 홈이 뜬 때 · search_open = 홈 검색창(또는 돋보기 · 아래 검색 탭)으로 검색 화면을 연 때 · search = [검색](q = 검색어 · via typed) · search_empty = 빈 칸으로 [검색] · search_back = 검색 화면에서 [←] · rec_loading · rec_open은 [상품 추천받기] 뒤 예전과 같음"
+"note": "nudge_finger = 20초 손가락이 뜬 때(at: home / rec) · q_back = 설문 [← 이전]을 누른 때(from · to 화면 · 같은 과업 설문 안에서만, 답은 마지막 것만 저장) · retry의 restart 1 = 홈부터 다시(V22_FB_5부터 네 칸 모두 1) · 응답 표에 새 열은 없음 · 저장 열 · 문항 코드는 v22.1과 같음 · 6번(M1_3r · Q13) 문구만 느꼈다 → 느껴졌다 · V22_FB_27(v22.29) 새 로그 rec_loading = 사후 집단이 홈 [추천받기]를 누른 뒤 첫 추천 6개 앞 로딩이 시작된 때(task) · rec_open은 로딩이 끝나고 첫 6개가 뜬 때(사전은 [추천받기]를 누른 때 그대로) · FB_33부터(v22.36 포함) 로딩 2.8초(FB_32는 2.0초 · 등장 1.1초) · 로딩 뒤 상품 6개가 차례로 나오고(1.6초 · 그동안 눌러도 반응 없음) 사후 t_rec(조작 시간 시작) = rec_open + 1.6초 · 조작 뒤 결과 로딩은 ‘반영할 조건’ 칩 · 응답 표에 새 열은 없음 · v22.47 새 로그: app_intro_end = 쇼핑마다 처음 앱 인트로(1.5초)가 끝나 홈이 뜬 때 · search_open = 홈 검색창(또는 돋보기 · 아래 검색 탭)으로 검색 화면을 연 때 · search = [검색](q = 검색어 · via typed) · search_empty = 빈 칸으로 [검색] · search_back = 검색 화면에서 [←] · rec_loading · rec_open은 [상품 추천받기] 뒤 예전과 같음 · v22.50 새 로그 auto_scroll = 스크롤이 생기는 폰 화면에 들어온 뒤 20초(CONFIG.AUTO_SCROLL_SEC · 0 = 끔) 동안 한 번도 안 내려 끝까지 천천히 자동으로 내린 때(task · sk = 화면 키 · 화면마다 한 번) · v22.51부터 20초 손가락 안내(nudge_finger)와 겹쳐도 자동 스크롤이 위로 되돌아가지 않음(v22.50은 되돌아갈 수 있음) · 응답 표에 새 열은 없음"
 },
 "V22_FB_14 · FB_19 새 열 3개": {
 "no": "—",
@@ -2673,7 +2677,7 @@ const TEAM_CB_47 = {
 "table": "과업 표",
 "level": "클릭 기록",
 "values": "초 · 횟수 · 태그",
-"note": "바꾼 횟수 · 걸린 시간 · 처음 바꾸기까지 (보정용) · 기본 추천 보기 · 다른 탭으로 간 횟수·시간(V13 추가) · result_tags = 결과 화면 태그(V18 v19.1부터 TAG_MODE changed: 바꾼 값만 보여 주므로 changed_tags와 같음 · 옛 기록은 안 바꾼 것에 '(그대로)' 표시) · changed_tags = 바꾼 것만 · selection = 결정: 뺀 것 \"종류:값\"(style:크루넥 · brand:헤이든룸 · product:P2 — 교수님 D1대로 사후도 종류 단위면 style: · FB_32(D67)부터 하이넥 · 터틀넥을 빼면 결과에서 하프집업도 함께 바뀌지만 selection에는 고른 것만) / 행동: fit:값|mat:값|len:값 (V20: 안 고른 조건은 null · final_n = 고른 조건 수) · n_ops > 0 비율 = KPI 추천 조정 기능 사용률(28쪽) · 시간 기준(V22_FB_27 · v22.29부터): home_sec = 과업 시작 → 홈 [추천받기]를 누른 때 · control_sec · first_op_sec = 추천 맞추기 화면이 뜬 때(사후는 첫 6개 앞 로딩 · 등장이 끝난 뒤 — FB_33–36은 로딩 2.8초 + 상품 등장 1.6초 · FB_32는 로딩 2.0초 + 등장 1.1초 · v22.29–FB_31은 로딩 1.5초)부터 → 사전 · 사후 같은 기준(로딩 · 등장 시간은 어느 열에도 안 들어감) · 이전 버전 사후 기록은 로딩이 없어 그대로 비교 가능 · [다시 해 보기](v22.33부터 · D66 · 준영 FB_36): home_sec · first_op_sec · control_sec = 1회차 기준(처음 한 번만 기록) · result_sec = 마지막 결과 화면(상품 등장 포함) · task_sec = 모든 회차를 합친 과업 전체 · 회차별 시간은 로그(rec_open → op → submit · retry로 회차 구분) · v22.33 이전(FB_35까지)은 2회차 값이 덮어써서 first_op_sec가 음수 · home_sec에 1회차 전체가 들어감 → 그 과업은 로그로 다시 계산하거나 시간 분석에서 빼기 · 연구자 화면 36부터: v22.33 이전 실험물에서 [다시 해 보기]를 누른 과업의 home_sec · control_sec · first_op_sec는 빈칸(시간 분석 제외) · home_sec은 실험물과 같게 [추천받기]를 누른 때까지(t_home_click) · 시간 열(home_sec · control_sec · first_op_sec)은 1회차 기준(D66) — 팀 FB_36(v22.36) · FB_43부터 · 아영 FB_36–42는 [다시 해 보기] 뒤 덮어써져 first_op_sec이 음수일 수 있음 → 그 응답은 rounds로 다시 계산 · v22.47(검색으로 시작)부터: t_start(과업 시작) = 앱 인트로가 끝나 홈이 뜬 때(인트로 1.5초는 home_sec · task_sec에 안 들어감) · home_sec = 홈이 뜬 때 → [상품 추천받기]를 누른 때(검색 화면 시간 포함 · 검색 화면만의 시간은 search_sec) · v22.44 이전(홈 [추천받기])과 home_sec 끝점은 같은 뜻(추천 화면을 연 때)이지만 사이에 검색이 들어가 길어짐 → 버전별로 나눠 보기"
+"note": "바꾼 횟수 · 걸린 시간 · 처음 바꾸기까지 (보정용) · 기본 추천 보기 · 다른 탭으로 간 횟수·시간(V13 추가) · result_tags = 결과 화면 태그(V18 v19.1부터 TAG_MODE changed: 바꾼 값만 보여 주므로 changed_tags와 같음 · 옛 기록은 안 바꾼 것에 '(그대로)' 표시) · changed_tags = 바꾼 것만 · selection = 결정: 뺀 것 \"종류:값\"(style:크루넥 · brand:헤이든룸 · product:P2 — 교수님 D1대로 사후도 종류 단위면 style: · FB_32(D67)부터 하이넥 · 터틀넥을 빼면 결과에서 하프집업도 함께 바뀌지만 selection에는 고른 것만) / 행동: fit:값|mat:값|len:값 (V20: 안 고른 조건은 null · final_n = 고른 조건 수) · n_ops > 0 비율 = KPI 추천 조정 기능 사용률(28쪽) · 시간 기준(V22_FB_27 · v22.29부터): home_sec = 과업 시작 → 홈 [추천받기]를 누른 때 · control_sec · first_op_sec = 추천 맞추기 화면이 뜬 때(사후는 첫 6개 앞 로딩 · 등장이 끝난 뒤 — FB_33–36은 로딩 2.8초 + 상품 등장 1.6초 · FB_32는 로딩 2.0초 + 등장 1.1초 · v22.29–FB_31은 로딩 1.5초)부터 → 사전 · 사후 같은 기준(로딩 · 등장 시간은 어느 열에도 안 들어감) · 이전 버전 사후 기록은 로딩이 없어 그대로 비교 가능 · [다시 해 보기](v22.33부터 · D66 · 준영 FB_36): home_sec · first_op_sec · control_sec = 1회차 기준(처음 한 번만 기록) · result_sec = 마지막 결과 화면(상품 등장 포함) · task_sec = 모든 회차를 합친 과업 전체 · 회차별 시간은 로그(rec_open → op → submit · retry로 회차 구분) · v22.33 이전(FB_35까지)은 2회차 값이 덮어써서 first_op_sec가 음수 · home_sec에 1회차 전체가 들어감 → 그 과업은 로그로 다시 계산하거나 시간 분석에서 빼기 · 연구자 화면 36부터: v22.33 이전 실험물에서 [다시 해 보기]를 누른 과업의 home_sec · control_sec · first_op_sec는 빈칸(시간 분석 제외) · home_sec은 실험물과 같게 [추천받기]를 누른 때까지(t_home_click) · 시간 열(home_sec · control_sec · first_op_sec)은 1회차 기준(D66) — 팀 FB_36(v22.36) · FB_43부터 · 아영 FB_36–42는 [다시 해 보기] 뒤 덮어써져 first_op_sec이 음수일 수 있음 → 그 응답은 rounds로 다시 계산 · v22.47(검색으로 시작)부터: t_start(과업 시작) = 앱 인트로가 끝나 홈이 뜬 때(인트로 1.5초는 home_sec · task_sec에 안 들어감) · home_sec = 홈이 뜬 때 → [상품 추천받기]를 누른 때(검색 화면 시간 포함 · 검색 화면만의 시간은 search_sec) · v22.44 이전(홈 [추천받기])과 home_sec 끝점은 같은 뜻(추천 화면을 연 때)이지만 사이에 검색이 들어가 길어짐 → 버전별로 나눠 보기 · v22.49(FB_49) 사후 추천 화면 UI(CONFIG.POST_LAYOUT49): AI가 고른 6개가 AI 카드 안 · 사후 × 결정은 상품마다 있던 [이 종류 제외] · [이 브랜드 제외] 버튼 → 아래 칩('니트 종류' · '자주 본 브랜드') · 사후 × 행동은 조건 상자가 AI 카드 아래 — selection 값(style: · brand: · fit:|mat:|len:) · 빼는 단위 · 결과 규칙은 그대로 · 사후 첫 로딩은 화면 전체를 어둡게(시간 그대로) · v22.52 검색 뒤 화면은 AI 카드 → '검색결과 6개 상품' → 사진 자리 6칸이 차례로 나옴(누를 수 없음 · home_sec에 들어가는 검색 화면 모습만 바뀜) · 사전 칸 추천 화면은 그대로"
 },
 "order_* 10열": {
 "no": "—",
@@ -2743,7 +2747,7 @@ const TEAM_CB_47 = {
 "table": "응답 · 사람 표",
 "level": "기록",
 "values": "시각(ISO) · 글 · 숫자",
-"note": "started_at · finished_at · restarted_at = 시작 · 제출 · 재시작 시각 · study = 실험물 버전 글(예: SBCX-2조-v22.27 (2026-11-08) · 파일럿이면 \" · 파일럿\") · dev = 1이면 미리보기(?dev=1) · resumed = 이어서 시작한 횟수 · group = 칸 묶음 1–4(1 목적형·사전 · 2 목적형·사후 · 3 탐색형·사전 · 4 탐색형·사후) · screen_w · screen_h · viewport_w · viewport_h = 화면 · 창 크기(px) · dpr = 화면 배율 · ua = 브라우저 정보 — 모두 조건 · 결과와 무관한 기록용 · 주의: FB_32–35 응답은 study가 ‘SBCX-2조-v22.30 (2026-11-09)’로 찍혀(파일 버전 번호를 안 올림) 진짜 v22.30과 구분 안 됨 → started_at(11/10 이후)으로 나누기 · FB_36부터 v22.36 (2026-11-11) · 아영 FB_36–42 응답도 study가 ‘SBCX-2조-v22.30 (2026-11-09)’로 찍힘 → started_at으로 나누기 · FB_43 = v22.43 · FB_44(11/12 동결본)부터 ‘SBCX-2조-v22.44 (2026-11-12)’ · FB_47(11/13 · W10 피드백 뒤 수정본)부터 ‘SBCX-2조-v22.47 (2026-11-13)’"
+"note": "started_at · finished_at · restarted_at = 시작 · 제출 · 재시작 시각 · study = 실험물 버전 글(예: SBCX-2조-v22.27 (2026-11-08) · 파일럿이면 \" · 파일럿\") · dev = 1이면 미리보기(?dev=1) · resumed = 이어서 시작한 횟수 · group = 칸 묶음 1–4(1 목적형·사전 · 2 목적형·사후 · 3 탐색형·사전 · 4 탐색형·사후) · screen_w · screen_h · viewport_w · viewport_h = 화면 · 창 크기(px) · dpr = 화면 배율 · ua = 브라우저 정보 — 모두 조건 · 결과와 무관한 기록용 · 주의: FB_32–35 응답은 study가 ‘SBCX-2조-v22.30 (2026-11-09)’로 찍혀(파일 버전 번호를 안 올림) 진짜 v22.30과 구분 안 됨 → started_at(11/10 이후)으로 나누기 · FB_36부터 v22.36 (2026-11-11) · 아영 FB_36–42 응답도 study가 ‘SBCX-2조-v22.30 (2026-11-09)’로 찍힘 → started_at으로 나누기 · FB_43 = v22.43 · FB_44(11/12 동결본)부터 ‘SBCX-2조-v22.44 (2026-11-12)’ · FB_47(11/13 · W10 피드백 뒤 수정본)부터 ‘SBCX-2조-v22.47 (2026-11-13)’ · FB_49–53(11/14) = ‘SBCX-2조-v22.49 (2026-11-14)’ ~ ‘SBCX-2조-v22.53 (2026-11-14)’ · 버전마다 번호를 올려 study 열로 나눌 수 있음"
 },
 "단계별 시간 · 이탈 기록": {
 "no": "—",
@@ -2753,7 +2757,7 @@ const TEAM_CB_47 = {
 "table": "응답",
 "level": "기록",
 "values": "초 · 글",
-"note": "stage_sec_intro · setup · T1 · T2 · T3 · T4 · survey · done = 단계마다 머문 시간(초 · intro 동의·튜토리얼 · setup 자극 전 3문항 · T1–T4 쇼핑 1·2와 그 설문 · survey 마무리 · done 완료 화면) · leave_log = 다른 탭·창으로 간 기록(화면ID@떠난 시각(초)+떠나 있던 시간(초) · |로 이음) · n_leave · leave_sec는 따로 줄 · v22.47부터 intro = 튜토리얼 2화면(동의 · 참여 방법) · setup = 자극 전 문항 + 상황 카드 + 준비 화면 → v22.44 이전과 intro 시간 비교 안 됨"
+"note": "stage_sec_intro · setup · T1 · T2 · T3 · T4 · survey · done = 단계마다 머문 시간(초 · intro 동의·튜토리얼 · setup 자극 전 3문항 · T1–T4 쇼핑 1·2와 그 설문 · survey 마무리 · done 완료 화면) · leave_log = 다른 탭·창으로 간 기록(화면ID@떠난 시각(초)+떠나 있던 시간(초) · |로 이음) · n_leave · leave_sec는 따로 줄 · v22.47부터 intro = 튜토리얼 2화면(동의 · 참여 방법) · setup = 자극 전 문항 + 상황 카드 + 준비 화면 → v22.44 이전과 intro 시간 비교 안 됨 · v22.52부터 튜토리얼 '참여 방법' 화면의 '연습해 볼까요?'(1~7 연습 버튼) 삭제 → intro 시간이 짧아질 수 있음(연습 답은 원래 저장 안 됨)"
 },
 "검색 열 4개 · v22.47 (task1_ · task2_ · D_ · A_ 앞붙이)": {
 "no": "—",
@@ -2763,7 +2767,7 @@ const TEAM_CB_47 = {
 "table": "응답 · 과업 표",
 "level": "클릭 기록",
 "values": "글 · typed · 초 · 횟수",
-"note": "검색으로 시작(v22.45부터) — search_query = 마지막에 [검색]한 검색어(참여자가 직접 입력 · 폰 옆 안내 카드에 검색어를 보여 줌: 목적형 ‘회색 니트’ · 탐색형 첫 쇼핑 ‘요즘 입기 좋은 니트’ / 두 번째 쇼핑 ‘요즘 인기 있는 니트’ · 최대 40자) · search_via = typed(직접 입력) · search_sec = 검색 화면을 연 때 → [검색](1회차) · n_search = [검색] 누른 횟수 · 추천 결과는 검색어와 상관없이 같음 · 분석: 안내한 검색어를 그대로 쳤는지(확인용) · 조작 효과 분석에는 쓰지 않음"
+"note": "검색으로 시작(v22.45부터) — search_query = 마지막에 [검색]한 검색어(참여자가 직접 입력 · 폰 옆 안내 카드에 검색어를 보여 줌: 목적형 ‘회색 니트’ · 탐색형 첫 쇼핑 ‘요즘 입기 좋은 니트’ / 두 번째 쇼핑 ‘요즘 인기 있는 니트’ · 최대 40자) · search_via = typed(직접 입력) · search_sec = 검색 화면을 연 때 → [검색](1회차) · n_search = [검색] 누른 횟수 · 추천 결과는 검색어와 상관없이 같음 · 분석: 안내한 검색어를 그대로 쳤는지(확인용) · 조작 효과 분석에는 쓰지 않음 · v22.52부터 목적형 안내 검색어 '회색 니트' → '5만 원 이하 회색 니트'(첫 번째 · 두 번째 쇼핑 모두 · 탐색형은 그대로) → search_query 확인 때 버전별 안내 검색어와 비교 · 검색 화면 [검색] · [상품 추천받기] 버튼 파랑(v22.50) · 결과는 검색어와 상관없이 같음"
 },
 "자극물 체류 시간 3열 · v22.47 (D101)": {
 "no": "—",
@@ -2783,7 +2787,7 @@ const TEAM_CB_47 = {
 "table": "응답 · 과업 표",
 "level": "클릭 기록 · 자극 뒤 값",
 "values": "횟수 · % · 자리 · 상품 코드",
-"note": "n_clicks = 그 쇼핑 화면에서 누른 횟수(모든 클릭) · initial_scroll_max = 첫 추천 6개 화면을 어디까지 내려봤나(최대 스크롤 % · 사후만 · 사전은 빈칸) · replaced_pos = 최종 결과에서 바뀐 상품 자리(1–6 · |로 이음 · FB_32부터 결정에서 하이넥 · 터틀넥을 빼면 하프집업 자리도 바뀌어 1개 더 나올 수 있음 · D67) · result_ids = 최종 결과 상품 6개 코드(|로 이음) — 모두 자극 뒤 값이라 결과로만 보고 · FB_39(D73)부터 행동 [다시 해 보기] 때 앞 회차와 다른 세트(가 ↔ 나)의 같은 핏 · 기장 사진 코드가 들어갈 수 있음 · FB_40(D74) 결정 과업 사진과 겹치는 조합은 원래 세트 그대로 · FB_42(D75)부터 레귤러 · 기본 조건에 새 사진 코드 RG2_1–6 · RG3_1–6 · 상품 이름 · 브랜드 · 가격 · 태그는 원래 세트 그대로 → 실제 진행(R1170–R1185 · v22.33) 응답과 사진 코드가 다를 수 있음"
+"note": "n_clicks = 그 쇼핑 화면에서 누른 횟수(모든 클릭) · initial_scroll_max = 첫 추천 6개 화면을 어디까지 내려봤나(최대 스크롤 % · 사후만 · 사전은 빈칸) · replaced_pos = 최종 결과에서 바뀐 상품 자리(1–6 · |로 이음 · FB_32부터 결정에서 하이넥 · 터틀넥을 빼면 하프집업 자리도 바뀌어 1개 더 나올 수 있음 · D67) · result_ids = 최종 결과 상품 6개 코드(|로 이음) — 모두 자극 뒤 값이라 결과로만 보고 · FB_39(D73)부터 행동 [다시 해 보기] 때 앞 회차와 다른 세트(가 ↔ 나)의 같은 핏 · 기장 사진 코드가 들어갈 수 있음 · FB_40(D74) 결정 과업 사진과 겹치는 조합은 원래 세트 그대로 · FB_42(D75)부터 레귤러 · 기본 조건에 새 사진 코드 RG2_1–6 · RG3_1–6 · 상품 이름 · 브랜드 · 가격 · 태그는 원래 세트 그대로 → 실제 진행(R1170–R1185 · v22.33) 응답과 사진 코드가 다를 수 있음 · 주의(v22.50부터): 사후 첫 추천 화면에서 20초 동안 안 내리면 자동 스크롤이 끝까지 내리고, 이 움직임도 initial_scroll_max에 그대로 잡혀 1(100%)이 될 수 있음 → 그 과업 로그에 auto_scroll이 있으면 auto_scroll 앞의 scroll 기록(depth)으로 참여자가 직접 내린 깊이를 다시 보기 · 폰 화면에 스크롤이 생기면 옆 안내 카드 앞에 '스크롤을 내려 화면을 끝까지 확인하고, '가 붙음(v22.50)"
 },
 "문항 보조 열 ({코드}_rt · _ok · att_* · Q32_*)": {
 "no": "—",
@@ -2841,7 +2845,7 @@ const PAST_STAGES = [
 const PAST_KINDS = ['p1', 'p2', 'p2m', 'p3', 'pilot'], SANDBOX_KINDS = ['rehearsal', 'test', 'dev'];
 const STAGE_SLUG = { pilot4: '4명점검', pilot2: '파일럿2차', soft: '소프트런치', main: '본설문', p1: '1인지', p2: '2사전검사', p2m: '미니테스트', p3: '3실제진행', pilot: '파일럿미정', old: '지난단계' };
 const STAGE_KEYS = RUN_STAGES.map(x => x.key).concat(PAST_STAGES.map(x => x.key), ['old']);
-const MC21_ANS = { D: '결정', A: '행동' }, MC22_ANS = { pre: '보기 전에', post: '보면서' };
+const MC21_ANS = { D: '결정', A: '행동' }, MC22_ANS = { pre: '내가 먼저', post: 'AI가 먼저' };   // 화면 50: 22번 보기 v22.49부터 '내가 먼저 … / AI가 먼저 …'(코드 pre / post 그대로)
 const fmtW = v => v == null || isNaN(v) ? '—' : String(Math.round(v * 10) / 10);   // 23번 W 점수(1–7) — 한 문항이라 대개 정수
 function stageInfo(k) { return RUN_STAGES.find(x => x.key === k) || PAST_STAGES.find(x => x.key === k) || (k === 'old' ? { key: 'old', label: '예전 한눈에 보기', when: '11/12까지 화면' } : RUN_STAGES[0]); }
 function isPastStage(k) { return !RUN_STAGES.some(x => x.key === k); }
@@ -3003,7 +3007,7 @@ function renderMC() {
   <div class="card pad0" style="margin-bottom:14px"><div class="ch"><h3>어디서 많이 틀리나 <span class="muted" style="font-weight:400">맞은 수 / 답한 수 · 빨강 = 기준(${pc100(th)}% · 23번 ${pc100(wTh)}%) 아래</span></h3></div>
     <div class="tbl-wrap"><table class="tbl"><thead><tr><th>문항</th><th class="n">전체</th><th class="n">첫 쇼핑</th><th class="n">둘째 쇼핑</th><th class="n">결정 쇼핑</th><th class="n">행동 쇼핑</th><th class="n">결정→행동 순서</th><th class="n">행동→결정 순서</th><th class="n">사전</th><th class="n">사후</th></tr></thead><tbody>${sumRow('21번 유형 (쇼핑마다)', 'ok21')}${sumRow('22번 시점 (쇼핑마다)', 'ok22')}${sum23}</tbody></table></div></div>
   ${section('DA')}${section('AD')}
-  <div class="muted">정답 — 21번: 그 쇼핑의 유형(결정 = 원하지 않는 것을 제외 · 행동 = 원하는 조건을 정함) · 22번: 그 사람의 시점(사전 = 보기 전에 · 사후 = 보면서) · 23번: 목적형은 탐색형 평균보다 높게, 탐색형은 목적형 평균보다 낮게</div>`;
+  <div class="muted">정답 — 21번: 그 쇼핑의 유형(결정 = 원하지 않는 것을 제외 · 행동 = 원하는 조건을 정함) · 22번: 그 사람의 시점(사전 = 내가 먼저 · 사후 = AI가 먼저) · 23번: 목적형은 탐색형 평균보다 높게, 탐색형은 목적형 평균보다 낮게</div>`;
 }
 
 /* ---------- 한눈에 보기 ---------- */
@@ -3071,9 +3075,9 @@ function renderDashboardPast(k) {
   <div class="muted">위 일정은 W10 계획(11/6–11/22) 그대로입니다 — 지난 기록으로만 둡니다.</div>`;
 }
 
-/* ---------- 코드북: 팀 최종 v22.47 줄 그대로(v5_teamcb.js) ---------- */
+/* ---------- 코드북: 팀 v22.53 줄 그대로(v5_teamcb.js · 화면 50) ---------- */
 function codebookRows() {
-  return codebookRowsBase().map(r => { const key = TEAM_CB_RENAME[r.code] || r.code, t = TEAM_CB_47[key]; if (!t) return r; const o = Object.assign({}, r, t);
+  return codebookRowsBase().map(r => { const key = TEAM_CB_RENAME[r.code] || r.code, t = TEAM_CB[key]; if (!t) return r; const o = Object.assign({}, r, t);
     if (key === '자극물 체류 시간 3열 · v22.47 (D101)') o.note = t.note + ' · 연구자 화면 45: 세 열이 없는 예전 기록(v22.47 첫 판 이전)은 화면 들어감(step_enter) 로그로 계산해 응답 CSV에 채움';
     return o; });
 }
@@ -3082,7 +3086,8 @@ const STAGE_BAR_PAGES = ['dashboard', 'mc', 'responses', 'live', 'monitor', 'ana
 function renderStageBar() {
   const el = $('#stagebar'); if (!el) return;
   if (!STAGE_BAR_PAGES.includes(S.page)) { el.hidden = true; return; }
-  el.hidden = false; const k = stageKey(), past = isPastStage(k);
+  el.hidden = false; if (S.page === 'monitor') { el.innerHTML = monitorStageBarHTML(); return; }   // 화면 50: 매일 점검은 소프트 런치 한 칸만
+  const k = stageKey(), past = isPastStage(k);
   const chip = x => { const set = stageSet(x.key), n = stageDoneOk(x.key, set).length, a = set.filter(s => statusOf(s) === 'active').length; return `<button class="sb-chip ${k === x.key ? 'on' : ''}" onclick="setStage('${x.key}')"><b>${esc(x.label)}</b><span class="mono">완료 ${n}/${x.target}${a ? ` · 진행 중 ${a}` : ''}</span></button>`; };
   const items = PAST_STAGES.filter(x => !x.onlyIfAny || stageSet(x.key).length).map(x => `<button class="sb-item ${k === x.key ? 'on' : ''}" onclick="setStage('${x.key}')"><b>${esc(x.label)}</b><span>${esc(x.when)}</span><span class="mono">완료 ${stageSet(x.key).filter(s => statusOf(s) === 'done').length}</span></button>`).join('') + `<button class="sb-item ${k === 'old' ? 'on' : ''}" onclick="setStage('old')"><b>예전 한눈에 보기</b><span>11/12까지 화면</span><span></span></button>`;
   const pageNote = S.page === 'monitor' ? '매일 점검은 본 설문 기록(4명 점검 · 소프트 런치 포함)으로 셉니다 — 단계를 바꿔도 같음' : S.page === 'analytics' ? '조건별 비교는 본 설문 집계 대상으로 셉니다 — 단계를 바꿔도 같음' : '';
@@ -3270,6 +3275,18 @@ function renderConsent() {
   <details class="card" style="padding:14px 20px"><summary style="cursor:pointer;font-weight:600">동의 문구 · 저장되는 내용 <span class="mono muted" style="font-weight:400">${esc(STUDY.consentVersion)}</span></summary>
     <div class="consent-list" style="margin-top:10px">${CONSENT_TEXT_V1.map(c => `<div class="ck"><div><div class="ct">${c.req ? '<span class="req">[필수]</span>' : '<span class="opt-tag">[선택]</span>'}${esc(c.title)}</div>${c.desc ? `<div class="cd">${esc(c.desc)}</div>` : ''}</div></div>`).join('')}</div>
     <div class="muted" style="margin-top:10px">저장: consents/{pid} — participate(필수) · data(필수) · phone(선택 · 번호 자체는 lottery에만 · 이 화면은 못 읽음) · at · version. 체크하는 순간 저장돼요(하다가 나가도 남음). 문구를 바꾸면 실험물 consentBox와 CONFIG.CONSENT_VERSION을 함께 올리세요.</div></details>`;
+}
+
+/* =========================================================
+   연구자 화면 50 (11/14 새벽, 허준영)
+   · 실험물 V22_FB_53(v22.53 · 아영 FB_49–53) · 팀 코드북 v22.53 줄로 [코드북 내려받기] 맞춤(v5_teamcb.js)
+   · 매일 점검 탭 맨 위 단계 줄 = 소프트 런치 한 칸만(이 탭 숫자는 단계를 바꿔도 같아서 4칸이 헷갈림 · 준영 요청)
+   ========================================================= */
+function monitorStageBarHTML() {
+  const x = RUN_STAGES.find(r => r.key === 'soft'), set = stageSet('soft'), n = stageDoneOk('soft', set).length, a = set.filter(s => statusOf(s) === 'active').length;
+  const from = mainStartSet() ? `${kstDate(mainStart()).slice(5).replace('-', '/')} '본 설문 시작'부터` : "설정 탭 '본 설문 시작' 날부터";
+  return `<div class="sb-row"><span class="kicker" style="margin-right:2px">단계</span><span class="sb-chip on" style="cursor:default"><b>${esc(x.label)}</b><span class="mono">완료 ${n}/${x.target}${a ? ` · 진행 중 ${a}` : ''}</span></span><span class="sp"></span></div>
+    <div class="sb-note">${esc(x.sub)} <span class="muted">· 매일 21:00 한 줄은 ${esc(from)} · 다른 단계는 한눈에 보기에서</span></div>`;
 }
 
 /* =========================================================
