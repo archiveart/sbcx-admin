@@ -260,7 +260,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 52</b> · 11/15 · 실험물 v22.53(FB_53) · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M8xx는 R8xx로 표시) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 53</b> · 11/15 · 실험물 v22.53(FB_53) · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -313,6 +313,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 53 (11/15 낮, 허준영): 파일럿 번호 정리 — 11/14 밤 M으로 받은 파일럿 ② 8명(M805–M809 · M811–M813)을 들어온 순서대로 R122–R129로 표시(번호표 meta/seq/R1 121 → 129 · 새 파일럿 ② R130~ · R119–R121은 그사이 실제 참여자) · 목록에서는 원래 번호를 빼고 응답 상세 머리에만 '안내 번호' · 기록 키 · 참여자 안내 번호 · JSON 백업은 M 그대로 · M810은 휴지통
    연구자 화면 52 (11/15 0시, 허준영): 파일럿은 R · 본 설문은 M — 실험물 배포본 ⑦ 끔(?src=pilot2도 R · 공통 순번 R1) · 11/14 20:38–11/15 1시에 M8xx로 받은 파일럿 ② 기록(M805~ · 1시 기준 M805–M813)은 화면 · CSV에서 R8xx로 표시(v5_v51.js · 같은 숫자 · 기록 키 · 참여자 안내 번호는 M 그대로 · 쓸 때 원래 번호로 · JSON 백업은 원래 그대로 · 번호 옆에 작게 원래 번호) · 51의 R114–R117 → M801–M804 표시는 끔 · 하다가 나감 표에도 원래 번호 · 구분 · 판정은 그대로
    연구자 화면 51 (11/14 밤, 허준영): 파일럿 ② 번호 M — R114–R117을 M801–M804로 표시 · 새 파일럿 ② M805~(52에서 되돌림)
    연구자 화면 50 (11/14 새벽, 허준영): 실험물 V22_FB_53(v22.53 · 아영 FB_49–53: 사후 추천 화면 · 22번 줄기 · 보기 '내가 먼저 / AI가 먼저' · M2 7 · 9번 문구 · 검색 뒤 순서 · 자동 스크롤 로그 auto_scroll · 연습 삭제) — 저장 열 · 코드 그대로 · [코드북 내려받기] = 팀 코드북 v22.53 줄 + 화면 줄 · 응답 상세 · 조작점검 표의 22번 글자 새 보기로 · 매일 점검 단계 줄 = 소프트 런치만 · 본 설문 참여 번호 M001~(실험물 배포본 ⑥ · 파일럿 ② · 4명 점검 · 리허설은 R 그대로) · 질문 목록 긴 설명은 글 아래 회색 줄(세로 글자 고침)
@@ -562,7 +563,7 @@ const CONSENT_TEXT_V1 = [   // consent-v3 (실험물 V13 consentBox) — 앞 둘
 ];
 const SCHEMA = `Firebase 실시간 DB (실험물 V16-FB 가 쓰고, 이 화면이 읽음)
 meta/cellCounts            칸별 배정 수 {c1..c16, total, lastCell} — 트랜잭션으로 올림
-meta/seq/{M1|M805|R1|R901} 참여 번호 순번 (본 설문 M001~ · 11/14 배포본부터 / 파일럿 ②는 R(공통 R1 · R114~) · 11/14 20:38–11/15 1시 사이만 M805~(화면에서 R805~ · 같은 숫자) / 4명 점검 · 그 전 본 설문 링크 R001~ · 파일럿 R901~ · 인터뷰 P · 합성 사용자 S와 구분)
+meta/seq/{M1|M805|R1|R901} 참여 번호 순번 (본 설문 M001~ · 11/14 배포본부터 / 파일럿 ②는 R(공통 R1 · R114–R121 · 11/15 낮 129로 넘김 → R130~) · 11/14 20:38–11/15 1시에 M으로 받은 8명은 화면에서 R122–R129 / 4명 점검 · 그 전 본 설문 링크 R001~ · 파일럿 R901~ · 인터뷰 P · 합성 사용자 S와 구분)
 participants/{pid}.src     모집 경로 — 링크 뒤 ?src=friend(지인) · ?src=agency(업체) · 없으면 빈칸 (연구자 화면에서 바꿀 수 있음)
 meta/pilot · meta/ops      이 화면에서 고른 파일럿 판정 · 시작 전 점검 체크 · ops.w9(교수님 수정 D번호 체크) · ops.dvLock(수집 중 종속변수 잠금 auto/on/off)
 meta/rules                 자동 제외 규칙 {att(T0 주의 문항), fast, fastSec, fastLocked(사전등록 숫자 고정), dup, mcFails}
@@ -1309,7 +1310,7 @@ async function connectFirebase(config) {
   } catch (e) { console.error(e); toast('Firebase 연결 실패: ' + (e.message || e), 'err'); setConn('err', '연결 실패'); return false; }
 }
 function fbWrite(path, value) {
-  path = unaliasPath(path);   // 화면 52: 화면 번호(R8xx) → 원래 기록 키(M8xx)
+  path = unaliasPath(path);   // 화면 52 · 53: 화면 번호(R122–R129 등) → 원래 기록 키(M805–M813 등)
   if (S.mode !== 'fb' || !db || S.viewDemo) {   // 데모: 메모리에만
     const parts = path.split('/'); let o = S.demoCache; for (let i = 0; i < parts.length - 1; i++) { o[parts[i]] = o[parts[i]] || {}; o = o[parts[i]]; }
     if (value === null) delete o[parts[parts.length - 1]]; else o[parts[parts.length - 1]] = value;
@@ -1488,7 +1489,7 @@ function codebookRowsBase() {   // 화면 45: 겉은 v5_stage.js의 codebookRows
   const rows = [];
   const push = (no, code, q, table, level, values, note, item) => rows.push({ no: no ?? '', code, item: item || itemText(q) || '', survey: q || '', table, level, values: values == null ? '1~7' : values, note: note || '' });
   push('—', 'src', '', '모든 표 (셋째 열)', '배정', 'friend = 지인 모집 · agency = 리서치 업체 모집 · think = 파일럿 ① 인지 인터뷰 · pre = 파일럿 ② 자극 사전검사 · run = 파일럿 ③ 실제 진행 · mini = 미니테스트(11/10 · 4칸 × 과업 순서) · rehearsal = 연결 리허설 · 빈칸 = 링크에 ?src= 없음', '본 설문 링크 뒤 ?src=friend / ?src=agency · 파일럿은 ?pilot=1&src=think / pre / run · 리허설은 ?pilot=1&src=rehearsal&cell=N · 연구자 화면 kind(구분) 열은 이 값으로 ①②③을 나눔 · 응답 보기에서 바꿀 수 있음');
-  push('—', 'name · pid · pilot', '', '모든 표 (첫 두 열)', '배정', 'name = 연구자가 \'응답 보기\'에 적은 이름표(파일럿 · 미리보기처럼 누구인지 아는 사람만 · 본 설문 참가자는 익명이라 빈칸) · pid = 참여 번호 · 11/14 배포본(FB_53 ⑥)부터 본 설문 링크(?src=friend · agency · 빈칸)는 M + 순번(M001~ · 순번 meta/seq/M1 따로 · 임시 번호 ML…) · 파일럿 ②(?src=pilot2)는 R + 공통 순번(R114~ · 11/15 0시 배포본 ⑦ 끔) · 11/14 20:38–11/15 1시에 M으로 받은 기록(M805~ · 1시 기준 M805–M813)은 연구자 화면 · CSV에서 R805~(같은 숫자 · 앞 글자만 R · Firebase 기록 키 · 참여자 안내 번호 · JSON 백업은 M 그대로) · 4명 점검(?src=pilot4) · 파일럿 · 리허설 · 미리보기는 R 그대로 · 본 설문만 M(M001~) · 본 설문인지는 kind · src 열로 · 그 전 본 설문 링크는 R + 순번 · 본 설문 링크는 1부터(R001~ · 조원 테스트로 R089까지 씀 · 순번은 다시 시작하지 않음 — 기록이 참여 번호로 저장돼 같은 번호면 덮어씀) · v22.47 배포본(PID_SAFE_LOCAL): Firebase 순번을 못 받으면 RL로 시작하는 겹치지 않는 번호(RL + 7자 · 예: RLE6QVJH) — 예전엔 그 브라우저의 첫 번호 R001이 붙어 덮어쓰기 위험(11/12 20:29 R001) · 파일럿 링크(?pilot=1: 인지 인터뷰 · 사전검사 · 실제 진행 · 연결 리허설)는 901부터 한 줄로 이어 붙는 순번이라 R999를 넘어 네 자리도 됨(예: 사전검사 R1044 · R1050 · 리허설 R1012–R1043) · 미리보기 T### (인터뷰 P · 합성 사용자 S와 구분)', '장표 5.7 · 설문은 이름을 받지 않음 · 번호만으로 단계를 알 수 없으니 kind · src 열로 구분 · R070 = 미니테스트 참가자(시트 인터뷰 탭 R1130)가 일반 링크로 들어온 기록(src 빈칸 · assign_source firebase) → 11/10 밤 기록을 R1130으로 옮기고 미니테스트로 표시(R1130에 movedFrom = R070 · R070 번호는 이제 없음 · 본 설문 · 집계에서 빠짐)');
+  push('—', 'name · pid · pilot', '', '모든 표 (첫 두 열)', '배정', 'name = 연구자가 \'응답 보기\'에 적은 이름표(파일럿 · 미리보기처럼 누구인지 아는 사람만 · 본 설문 참가자는 익명이라 빈칸) · pid = 참여 번호 · 11/14 배포본(FB_53 ⑥)부터 본 설문 링크(?src=friend · agency · 빈칸)는 M + 순번(M001~ · 순번 meta/seq/M1 따로 · 임시 번호 ML…) · 파일럿 ②(?src=pilot2)는 R + 공통 순번(R114~ · 11/15 0시 배포본 ⑦ 끔 · 11/15 낮 번호표를 129로 넘겨 R122–R129를 비움 → 새 사람 R130~) · 11/14 20:38–11/15 1시에 M으로 받은 8명은 연구자 화면 · CSV에서 들어온 순서대로 R122–R129(M805→R122 · M806→R123 · M807→R124 · M808→R125 · M809→R126 · M811→R127 · M812→R128 · M813→R129 · M810은 휴지통 · 응답 상세 머리에 안내 번호 표시 · Firebase 기록 키 · 참여자 안내 번호 · JSON 백업은 M 그대로) · 4명 점검(?src=pilot4) · 파일럿 · 리허설 · 미리보기는 R 그대로 · 본 설문만 M(M001~) · 본 설문인지는 kind · src 열로 · 그 전 본 설문 링크는 R + 순번 · 본 설문 링크는 1부터(R001~ · 조원 테스트로 R089까지 씀 · 순번은 다시 시작하지 않음 — 기록이 참여 번호로 저장돼 같은 번호면 덮어씀) · v22.47 배포본(PID_SAFE_LOCAL): Firebase 순번을 못 받으면 RL로 시작하는 겹치지 않는 번호(RL + 7자 · 예: RLE6QVJH) — 예전엔 그 브라우저의 첫 번호 R001이 붙어 덮어쓰기 위험(11/12 20:29 R001) · 파일럿 링크(?pilot=1: 인지 인터뷰 · 사전검사 · 실제 진행 · 연결 리허설)는 901부터 한 줄로 이어 붙는 순번이라 R999를 넘어 네 자리도 됨(예: 사전검사 R1044 · R1050 · 리허설 R1012–R1043) · 미리보기 T### (인터뷰 P · 합성 사용자 S와 구분)', '장표 5.7 · 설문은 이름을 받지 않음 · 번호만으로 단계를 알 수 없으니 kind · src 열로 구분 · R070 = 미니테스트 참가자(시트 인터뷰 탭 R1130)가 일반 링크로 들어온 기록(src 빈칸 · assign_source firebase) → 11/10 밤 기록을 R1130으로 옮기고 미니테스트로 표시(R1130에 movedFrom = R070 · R070 번호는 이제 없음 · 본 설문 · 집계에서 빠짐)');
   push('—', 'cell · W · X2 · order · setOrder', '', '사람 표', '배정', 'cell 1~16 · W 목적형/탐색형 · X2 사전/사후 · order DA/AD · setOrder 가나/나가', '과업 표에는 type · task_order · set');
   push('—', 'total_sec · status · screen_reason · restart_of · assign_source', '', '사람 표', '기록', '초 · status = complete(완료) / restarted(재시작) / screened_out(참여 조건으로 종료) / incomplete(하다가 나감) · screen_reason = age(만 19세 미만) / age_over(만 40세 이상) / shop(구매 0회) / att(3번 주의 점검 ATT0 오답 → 그 자리에서 종료 · V22_FB_15 · D48) · assign_source = firebase(칸 수 세어 배정) / firebase-pilot(파일럿 균형 배정 · V22_FB_23부터) / firebase-mini(미니테스트 링크 · v22.32부터 4칸 × 과업 순서 여덟 묶음 · v22.31은 사후 네 묶음) / url-cell(링크로 고정) / random…(배정 실패 → 배정 확인 배지)', '종료(screened_out)된 사람은 사람 표에만 남고 응답 행(responses)은 없음 — 3번 오답 종료도 같음 · 재시작 · 조건 미달 기록은 집계에서 뺌 (5.6 ⑧) · restart_of = [처음으로] 누른 앞 기록 번호(번호가 확정된 뒤에만) · 연구자 화면 응답 보기에는 status가 한글(완료 · 재시작 · 종료 · 하다가 나감)로 보임');
   push(1, 'DEM_AGE', 'Q2', '사람 표', '자극 전 · 스크리닝 화면 (W10 1번)', '숫자', '만 19–39세가 아니면 여기서 종료(screened_out · V22: age / age_over)');
@@ -1658,7 +1659,7 @@ function flagBadges(s, opt) {   // opt.noChecks = 집중 확인·확인 질문 �
 }
 function okMark(v) { return v == null ? '<span class="badge b-mute">—</span>' : v ? '<span class="badge b-ok">○</span>' : '<span class="badge b-bad">×</span>'; }
 function okIn(v) { return v == null ? '—' : v ? '○' : '×'; }
-function pidBtn(pid, page) { const o = pidOrigOf(pid); return `<button class="mono" style="color:var(--a1);font-weight:600" title="${esc(o ? pid + ' · 참여자 안내 번호 ' + o : pid)}" onclick="goPage('${page || 'responses'}','${esc(pid)}')">${esc(pid)}${o ? `<span class="pid-orig">${esc(o)}</span>` : ''}</button>`; }   // 화면 51: 표시 번호면 원래 번호 작게
+function pidBtn(pid, page) { const o = pidOrigOf(pid); return `<button class="mono" style="color:var(--a1);font-weight:600" title="${esc(o ? pid + ' · 참여자 안내 번호 ' + o : pid)}" onclick="goPage('${page || 'responses'}','${esc(pid)}')">${esc(pid)}</button>`; }   // 화면 51 · 53: 표시 번호면 원래 번호는 마우스를 올렸을 때만(목록에는 안 붙임)
 /* 8단계 진행을 칸 8개로: 지난 칸 = 초록, 지금 칸 = 단계 색 */
 function stageSegs(stage) { const ci = STAGES.findIndex(x => x.key === stage); return `<div class="segs">${STAGES.map((sg, i) => `<i class="k${sg.k} ${i < ci ? 'done' : i === ci ? 'cur' : ''}" title="${esc(sg.label)}"></i>`).join('')}</div>`; }
 function emptyBox(t) { return `<div class="empty">${esc(t)}</div>`; }
@@ -3295,7 +3296,10 @@ function monitorStageBarHTML() {
     <div class="sb-note">${esc(x.sub)} <span class="muted">· 매일 21:00 한 줄은 ${esc(from)} · 다른 단계는 한눈에 보기에서</span></div>`;
 }
 
-/* ===== 연구자 화면 52 (11/15 0시, 허준영): 파일럿은 R · 본 설문은 M — 표시 번호 =====
+/* ===== 연구자 화면 53 (11/15 낮, 허준영): 파일럿 번호 정리 — M805–M813 → R122–R129 =====
+   53: 11/14 밤 M으로 받은 파일럿 ② 8명을 들어온 순서대로 R122–R129로 보여 준다(번호표 meta/seq/R1을 121 → 129로 넘겨 비워 둔 자리 · 새 파일럿 ② R130~)
+       · 목록 · 카드 · 표에는 원래 번호를 안 붙이고 응답 상세 머리에만 '안내 번호 M806' · 번호 단추 위에 마우스를 올리면 원래 번호 · 고정 표에 없는 M8xx(M810 등)는 같은 숫자 R8xx
+   (52) 파일럿은 R · 본 설문은 M — 표시 번호
    실험물 배포본 ⑦을 끄고(11/15 0시) 파일럿 ②도 R(공통 순번)로 받는다 · 본 설문만 M(M001~)
    · 11/14 20:38–11/15 0시에 M8xx로 받은 파일럿 ② 기록(M805 · M806 · M807 …)은 화면 · CSV에서 R8xx로 보여 준다(같은 숫자 · 앞 글자만 R)
    · R114–R117은 원래 R 그대로(화면 51의 M801–M804 표시는 끔)
@@ -3305,12 +3309,13 @@ function monitorStageBarHTML() {
 const ALIAS_PATHS = ['participants', 'live', 'consents', 'responses', 'exclusions'];
 function pidAliasActive() { return (S.mode === 'fb' && !S.viewDemo && S.pidAlias) || {}; }
 function pidOrigOf(pid) { const m = pidAliasActive(); return Object.keys(m).find(k => m[k] === pid) || null; }   // 화면 번호 → 원래 번호(기록 키) · 아니면 null
-function pidAliasRule(k, raw) {   // 기록 키 → 화면 번호(바꿀 때만) · M8xx 파일럿 ② → R8xx
+const PID_ALIAS_FIXED = { M805: 'R122', M806: 'R123', M807: 'R124', M808: 'R125', M809: 'R126', M811: 'R127', M812: 'R128', M813: 'R129' };   // 화면 53: 들어온 순서 · M810은 휴지통
+function pidAliasRule(k, raw) {   // 기록 키 → 화면 번호(바꿀 때만) · M8xx 파일럿 ② → 고정 표(R122–R129) · 없으면 R8xx
   const m = /^M(8\d\d)$/.exec(k); if (!m) return null;
   const rec = raw.participants && raw.participants[k], ex = raw.exclusions && raw.exclusions[k];
   const src = String((ex && ex.src) || (rec && rec.src) || '').trim().toLowerCase();
   if (rec && src !== 'pilot2') return null;   // 파일럿 ② 기록만
-  return 'R' + m[1];
+  return PID_ALIAS_FIXED[k] || ('R' + m[1]);
 }
 function computePidAlias(raw) {
   const m = {}, has = (p, k) => !!(raw[p] && Object.prototype.hasOwnProperty.call(raw[p], k)), keys = new Set();
@@ -3334,7 +3339,7 @@ function unaliasPath(path) {   // 쓸 때: participants · live · consents · r
   if (parts.length > 1 && (ALIAS_PATHS.includes(parts[0]) || parts[0] === 'logs')) { const o = pidOrigOf(parts[1]); if (o) parts[1] = o; }
   return parts.join('/');
 }
-function pidOrigTag(s) { return s && s.pidOrig ? `<span class="pid-orig" title="참여자에게 안내된 번호 · Firebase 기록 키">${esc(s.pidOrig)}</span>` : ''; }
+function pidOrigTag(s) { return ''; }   // 화면 53: 목록 · 카드 · 표에는 원래 번호를 안 붙임(응답 상세 머리 '안내 번호'에만)
 
 /* =========================================================
    시작 · 메뉴 · 테마 · 연결 표시
