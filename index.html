@@ -260,7 +260,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 53</b> · 11/15 · 실험물 v22.53(FB_53) · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 54</b> · 11/15 · 실험물 v22.53(FB_53) · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -313,6 +313,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 54 (11/15 오후, 허준영): 목록 · 카드 · 표 · 번호 단추에도 원래 번호를 작게 다시 붙임(예: R122 M805 · 준영 요청) · 번호 규칙은 53 그대로
    연구자 화면 53 (11/15 낮, 허준영): 파일럿 번호 정리 — 11/14 밤 M으로 받은 파일럿 ② 8명(M805–M809 · M811–M813)을 들어온 순서대로 R122–R129로 표시(번호표 meta/seq/R1 121 → 129 · 새 파일럿 ② R130~ · R119–R121은 그사이 실제 참여자) · 목록에서는 원래 번호를 빼고 응답 상세 머리에만 '안내 번호' · 기록 키 · 참여자 안내 번호 · JSON 백업은 M 그대로 · M810은 휴지통
    연구자 화면 52 (11/15 0시, 허준영): 파일럿은 R · 본 설문은 M — 실험물 배포본 ⑦ 끔(?src=pilot2도 R · 공통 순번 R1) · 11/14 20:38–11/15 1시에 M8xx로 받은 파일럿 ② 기록(M805~ · 1시 기준 M805–M813)은 화면 · CSV에서 R8xx로 표시(v5_v51.js · 같은 숫자 · 기록 키 · 참여자 안내 번호는 M 그대로 · 쓸 때 원래 번호로 · JSON 백업은 원래 그대로 · 번호 옆에 작게 원래 번호) · 51의 R114–R117 → M801–M804 표시는 끔 · 하다가 나감 표에도 원래 번호 · 구분 · 판정은 그대로
    연구자 화면 51 (11/14 밤, 허준영): 파일럿 ② 번호 M — R114–R117을 M801–M804로 표시 · 새 파일럿 ② M805~(52에서 되돌림)
@@ -1659,7 +1660,7 @@ function flagBadges(s, opt) {   // opt.noChecks = 집중 확인·확인 질문 �
 }
 function okMark(v) { return v == null ? '<span class="badge b-mute">—</span>' : v ? '<span class="badge b-ok">○</span>' : '<span class="badge b-bad">×</span>'; }
 function okIn(v) { return v == null ? '—' : v ? '○' : '×'; }
-function pidBtn(pid, page) { const o = pidOrigOf(pid); return `<button class="mono" style="color:var(--a1);font-weight:600" title="${esc(o ? pid + ' · 참여자 안내 번호 ' + o : pid)}" onclick="goPage('${page || 'responses'}','${esc(pid)}')">${esc(pid)}</button>`; }   // 화면 51 · 53: 표시 번호면 원래 번호는 마우스를 올렸을 때만(목록에는 안 붙임)
+function pidBtn(pid, page) { const o = pidOrigOf(pid); return `<button class="mono" style="color:var(--a1);font-weight:600" title="${esc(o ? pid + ' · 참여자 안내 번호 ' + o : pid)}" onclick="goPage('${page || 'responses'}','${esc(pid)}')">${esc(pid)}${o ? `<span class="pid-orig">${esc(o)}</span>` : ''}</button>`; }   // 화면 51 · 54: 표시 번호면 원래 번호 작게
 /* 8단계 진행을 칸 8개로: 지난 칸 = 초록, 지금 칸 = 단계 색 */
 function stageSegs(stage) { const ci = STAGES.findIndex(x => x.key === stage); return `<div class="segs">${STAGES.map((sg, i) => `<i class="k${sg.k} ${i < ci ? 'done' : i === ci ? 'cur' : ''}" title="${esc(sg.label)}"></i>`).join('')}</div>`; }
 function emptyBox(t) { return `<div class="empty">${esc(t)}</div>`; }
@@ -3296,7 +3297,8 @@ function monitorStageBarHTML() {
     <div class="sb-note">${esc(x.sub)} <span class="muted">· 매일 21:00 한 줄은 ${esc(from)} · 다른 단계는 한눈에 보기에서</span></div>`;
 }
 
-/* ===== 연구자 화면 53 (11/15 낮, 허준영): 파일럿 번호 정리 — M805–M813 → R122–R129 =====
+/* ===== 연구자 화면 54 (11/15 오후, 허준영): 파일럿 번호 정리 — M805–M813 → R122–R129 · 원래 번호를 작게 같이 =====
+   54: 목록 · 카드 · 표 · 번호 단추에도 원래 번호를 작게 다시 붙임(준영 요청 '헷갈리지 않게') · 번호 규칙은 53 그대로
    53: 11/14 밤 M으로 받은 파일럿 ② 8명을 들어온 순서대로 R122–R129로 보여 준다(번호표 meta/seq/R1을 121 → 129로 넘겨 비워 둔 자리 · 새 파일럿 ② R130~)
        · 목록 · 카드 · 표에는 원래 번호를 안 붙이고 응답 상세 머리에만 '안내 번호 M806' · 번호 단추 위에 마우스를 올리면 원래 번호 · 고정 표에 없는 M8xx(M810 등)는 같은 숫자 R8xx
    (52) 파일럿은 R · 본 설문은 M — 표시 번호
@@ -3339,7 +3341,7 @@ function unaliasPath(path) {   // 쓸 때: participants · live · consents · r
   if (parts.length > 1 && (ALIAS_PATHS.includes(parts[0]) || parts[0] === 'logs')) { const o = pidOrigOf(parts[1]); if (o) parts[1] = o; }
   return parts.join('/');
 }
-function pidOrigTag(s) { return ''; }   // 화면 53: 목록 · 카드 · 표에는 원래 번호를 안 붙임(응답 상세 머리 '안내 번호'에만)
+function pidOrigTag(s) { return s && s.pidOrig ? `<span class="pid-orig" title="참여자에게 안내된 번호 · Firebase 기록 키">${esc(s.pidOrig)}</span>` : ''; }   // 화면 54: 목록에도 원래 번호 작게
 
 /* =========================================================
    시작 · 메뉴 · 테마 · 연결 표시
