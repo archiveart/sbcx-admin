@@ -260,7 +260,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 58</b> · 11/16 · 실험물 v22.56(FB_56 배포본 ⑨–⑪ · GitHub + Netlify) · 마감 11/23 24:00 · 엠브레인 패널 ID(panel_id) · 소프트 런치 32명 · 4명 점검은 본 설문 180명에서 뺌 · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 색은 역할로만</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 59</b> · 11/16 · 실험물 v22.56(FB_56 배포본 ⑨–⑫ · GitHub + Netlify) · 마감 11/23 24:00(비밀 11/30 · 철회 12/2) · 22번 75/60 · 성별 · 나이 · 엠브레인 패널 ID(panel_id) · 소프트 런치 32명 · 4명 점검은 본 설문 180명에서 뺌 · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 색은 역할로만</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -313,6 +313,10 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 59 (11/16 오후, 허준영 · 팀 결정): 수집 마감 11/23 24:00 그대로(58) · 실험물 디브리핑만 비밀 11/30 · 철회 12/2(배포본 ⑫ · 팀원 수정)
+      · 22번(시점) 조작점검 세 칸 판정(STUDY.q22): 소프트 런치 · 첫 100명 — 75% 이상 진행 · 60–74% 소프트 런치는 다듬고 진행 → 첫 100명 재확인 · 첫 100명은 진행 + 민감도(정답자만 · 첫 과업만) · 60% 미만 보류 · 교수님 상담
+        (예전: 소프트 런치 21 · 22번 70% 한 줄) · 21번은 70% 그대로 · 첫 100명 중단 조건(21 · 22번 70%) 줄도 그대로 · 표에 '주의 · 진행' 배지 · 분석 코드 FIRST_GO .75 · FIRST_MID .60과 같은 숫자
+      · 단계 화면에 성별 · 나이 카드(27번 · 1번 답 · 완료 기준 · 본 설문은 반반이면 90 · 90) · 코드북 pid 줄 = 팀 코드북 v22.56_2(본 설문 M · 미리보기 T + 7자 · panel_id)
    연구자 화면 58 (11/16, 허준영 · 팀 결정): 마감 11/22 → 11/23 24:00 — 사전등록 ⑦ · 분석 코드(11/23 24:00 전에 시작한 기록)와 같게 · 실험물 디브리핑도 '11월 23일'(배포본 ⑪)
       · STUDY.collect end 11-23 · closeAt 11/24 00:00 → 종속변수 잠금(auto)이 11/23 24:00 뒤에 열림 · 종료 규칙 · 하루 목표 안내 · 매일 점검 표 끝 날 · 본 설문 기간 표시는 설정 탭 '본 설문 시작'(없으면 11/17)
       · W10 일정표의 11/22는 그때 기록이라 그대로 · 지난 결정 목록 D7 · D10에는 바뀐 것을 덧붙임 · 판정 · 집계 · 분류 코드는 57 그대로
@@ -406,6 +410,7 @@ const STUDY = {
   collect: { softStart: '2026-11-12T18:00:00+09:00', check: '2026-11-13T21:00:00+09:00', fullStart: '2026-11-14T00:00:00+09:00', start: '2026-11-17', end: '2026-11-23', closeAt: '2026-11-24T00:00:00+09:00', days: 10 },   // 교수님 W9 24–25쪽 · 화면 58(11/16 팀): 본 설문 11/17 시작 · 마감 11/23 24:00(사전등록 ⑦ · 분석 코드와 같게 · 예전 11/13–22 · closeAt 11/23 00:00)
   softN: 32,                // 소프트 런치 = 처음 32명(16칸 × 2) · 화면 55(11/16 팀): 18명(목표의 10%)은 사람이 적어 비율이 흔들려서 32명으로
   stop: { cellSkew: 0.15, dropMax: 0.20, mcMin: 0.70, mcFirstN: 100 },   // 중단 조건(교수님 24쪽): 매칭 오류 1건 · 배정 쏠림 ±15% · 첫 100명 MC < 70% · 이탈 > 20%
+  q22: { go: 0.75, hold: 0.60 },   // 화면 59(11/16 팀): 22번(시점) 조작점검 — 소프트 런치(첫 32명) · 첫 100명 모두 75% 이상 진행 · 60–74%: 소프트 런치는 다듬고 진행 → 첫 100명 재확인 / 첫 100명은 진행 + 민감도(정답자만 · 첫 과업만) · 60% 미만 보류 · 교수님 상담 · 21번은 70% 그대로
   rehearsalCells: 16, rehearsalPer: 2, rehearsalN: 32,   // 연결 리허설 — 교수님 8쪽 "연결 로직 리허설: 칸 수 × 2회 가짜 응답으로 매칭 100%" · 2조 16칸(목적 2 × 시점 2 × 과업 순서 2 × 세트 순서 2) × 2 = 32회(교수님 표 "2조 ★ P3 리허설 32회") · 팀원이 ?cell=1~16 링크로 돌리는 기술 점검(파일럿 인원 4·8·10–20명과 별개)
   liveStaleMs: 120000,      // 2분 동안 소식 없으면 '끊김'
   stopMs: 1800000,          // V28(11/9): 끝내지 않고 30분 넘게 움직임이 없으면 '하다가 나감'으로 자동 분류(응답 보기 '중단 · 종료' 묶음) · 다시 들어와 이어 하면 저절로 원래 목록으로
@@ -1499,7 +1504,7 @@ function codebookRowsBase() {   // 화면 45: 겉은 v5_stage.js의 codebookRows
   const push = (no, code, q, table, level, values, note, item) => rows.push({ no: no ?? '', code, item: item || itemText(q) || '', survey: q || '', table, level, values: values == null ? '1~7' : values, note: note || '' });
   push('—', 'src', '', '모든 표 (셋째 열)', '배정', 'friend = 지인 모집 · agency = 리서치 업체 모집 · think = 파일럿 ① 인지 인터뷰 · pre = 파일럿 ② 자극 사전검사 · run = 파일럿 ③ 실제 진행 · mini = 미니테스트(11/10 · 4칸 × 과업 순서) · rehearsal = 연결 리허설 · 빈칸 = 링크에 ?src= 없음', '본 설문 링크 뒤 ?src=friend / ?src=agency · 파일럿은 ?pilot=1&src=think / pre / run · 리허설은 ?pilot=1&src=rehearsal&cell=N · 연구자 화면 kind(구분) 열은 이 값으로 ①②③을 나눔 · 응답 보기에서 바꿀 수 있음');
   push('—', 'panel_id', '', '사람 표 · 응답 CSV · 중단 · 종료 표 (src 다음 열)', '배정', '엠브레인 패널 ID(문자) · 업체 링크로 안 온 기록은 빈칸', '실험물 배포본 ⑨(11/16): 업체 링크 ?src=agency&pid=값을 따로 저장 — 참여 번호 pid(M001~)와 다른 값 · 업체 완료 수와 맞출 때 씀 · 연구자 화면 57');
-  push('—', 'name · pid · pilot', '', '모든 표 (첫 두 열)', '배정', 'name = 연구자가 \'응답 보기\'에 적은 이름표(파일럿 · 미리보기처럼 누구인지 아는 사람만 · 본 설문 참가자는 익명이라 빈칸) · pid = 참여 번호 · 11/14 배포본(FB_53 ⑥)부터 본 설문 링크(?src=friend · agency · 빈칸)는 M + 순번(M001~ · 순번 meta/seq/M1 따로 · 임시 번호 ML…) · 파일럿 ②(?src=pilot2)는 R + 공통 순번(R114~ · 11/15 0시 배포본 ⑦ 끔 · 11/15 낮 번호표를 129로 넘겨 R122–R129를 비움 → 새 사람 R130~) · 11/14 20:38–11/15 1시에 M으로 받은 8명은 연구자 화면 · CSV에서 들어온 순서대로 R122–R129(M805→R122 · M806→R123 · M807→R124 · M808→R125 · M809→R126 · M811→R127 · M812→R128 · M813→R129 · M810은 휴지통 · 응답 상세 머리에 안내 번호 표시 · Firebase 기록 키 · 참여자 안내 번호 · JSON 백업은 M 그대로) · 4명 점검(?src=pilot4) · 파일럿 · 리허설 · 미리보기는 R 그대로 · 본 설문만 M(M001~) · 본 설문인지는 kind · src 열로 · 그 전 본 설문 링크는 R + 순번 · 본 설문 링크는 1부터(R001~ · 조원 테스트로 R089까지 씀 · 순번은 다시 시작하지 않음 — 기록이 참여 번호로 저장돼 같은 번호면 덮어씀) · v22.47 배포본(PID_SAFE_LOCAL): Firebase 순번을 못 받으면 RL로 시작하는 겹치지 않는 번호(RL + 7자 · 예: RLE6QVJH) — 예전엔 그 브라우저의 첫 번호 R001이 붙어 덮어쓰기 위험(11/12 20:29 R001) · 파일럿 링크(?pilot=1: 인지 인터뷰 · 사전검사 · 실제 진행 · 연결 리허설)는 901부터 한 줄로 이어 붙는 순번이라 R999를 넘어 네 자리도 됨(예: 사전검사 R1044 · R1050 · 리허설 R1012–R1043) · 미리보기 T### (인터뷰 P · 합성 사용자 S와 구분)', '장표 5.7 · 설문은 이름을 받지 않음 · 번호만으로 단계를 알 수 없으니 kind · src 열로 구분 · R070 = 미니테스트 참가자(시트 인터뷰 탭 R1130)가 일반 링크로 들어온 기록(src 빈칸 · assign_source firebase) → 11/10 밤 기록을 R1130으로 옮기고 미니테스트로 표시(R1130에 movedFrom = R070 · R070 번호는 이제 없음 · 본 설문 · 집계에서 빠짐)');
+  push('—', 'name · pid · pilot', '', '모든 표 (첫 두 열)', '배정', 'name = 연구자가 \'응답 보기\'에 적은 이름표(파일럿 · 미리보기처럼 누구인지 아는 사람만 · 본 설문 참가자는 익명이라 빈칸) · pid = 참여 번호 · 본 설문 링크(?src=agency · friend · 빈칸)는 M + 순번(M001~ · 배포본 MAIN_PREFIX · 순번 meta/seq/M1 따로) · 서버 순번을 못 받으면 ML로 시작하는 임시 번호(파일럿 · 리허설은 RL) · 파일럿 · 4명 점검 · 리허설은 R + 순번(11/14 전 본 설문 링크 테스트 R001~ 포함 · 11/14 밤 M805–M813으로 받은 파일럿 ② 8명은 연구자 화면 · CSV에서 R122–R129로 표시 · M810은 휴지통) · 파일럿 링크(?pilot=1: 인지 인터뷰 · 사전검사 · 실제 진행 · 연결 리허설)는 901부터 한 줄로 이어 붙는 순번이라 R999를 넘어 네 자리도 됨(예: 사전검사 R1044 · R1050 · 리허설 R1012–R1043) · 미리보기(&dev=1)는 T + 7자(11/16 배포본 ⑩ · 예 TL3K9Q2A · 인터뷰 P · 합성 사용자 S와 구분) · 엠브레인 패널 ID는 pid가 아니라 panel_id 열(배포본 ⑨)', '장표 5.7 · 설문은 이름을 받지 않음 · 번호만으로 단계를 알 수 없으니 kind · src 열로 구분 · R070 = 미니테스트 참가자(시트 인터뷰 탭 R1130)가 일반 링크로 들어온 기록(src 빈칸 · assign_source firebase) → 11/10 밤 기록을 R1130으로 옮기고 미니테스트로 표시(R1130에 movedFrom = R070 · R070 번호는 이제 없음 · 본 설문 · 집계에서 빠짐)');
   push('—', 'cell · W · X2 · order · setOrder', '', '사람 표', '배정', 'cell 1~16 · W 목적형/탐색형 · X2 사전/사후 · order DA/AD · setOrder 가나/나가', '과업 표에는 type · task_order · set');
   push('—', 'total_sec · status · screen_reason · restart_of · assign_source', '', '사람 표', '기록', '초 · status = complete(완료) / restarted(재시작) / screened_out(참여 조건으로 종료) / incomplete(하다가 나감) · screen_reason = age(만 19세 미만) / age_over(만 40세 이상) / shop(구매 0회) / att(3번 주의 점검 ATT0 오답 → 그 자리에서 종료 · V22_FB_15 · D48) · assign_source = firebase(칸 수 세어 배정) / firebase-pilot(파일럿 균형 배정 · V22_FB_23부터) / firebase-mini(미니테스트 링크 · v22.32부터 4칸 × 과업 순서 여덟 묶음 · v22.31은 사후 네 묶음) / url-cell(링크로 고정) / random…(배정 실패 → 배정 확인 배지)', '종료(screened_out)된 사람은 사람 표에만 남고 응답 행(responses)은 없음 — 3번 오답 종료도 같음 · 재시작 · 조건 미달 기록은 집계에서 뺌 (5.6 ⑧) · restart_of = [처음으로] 누른 앞 기록 번호(번호가 확정된 뒤에만) · 연구자 화면 응답 보기에는 status가 한글(완료 · 재시작 · 종료 · 하다가 나감)로 보임');
   push(1, 'DEM_AGE', 'Q2', '사람 표', '자극 전 · 스크리닝 화면 (W10 1번)', '숫자', '만 19–39세가 아니면 여기서 종료(screened_out · V22: age / age_over)');
@@ -1941,7 +1946,7 @@ function renderMonitor() {
     <div class="r"><span class="badge b-mute mono">${esc(logNote)}</span><button class="btn sm ghost" onclick="fetchLogsKeys(true).then(()=>renderMonitor())">로그 키 다시 확인</button><button class="btn sm" onclick="exportCurrent('monitor')">시트 CSV</button></div></div>
   <div class="stack" style="gap:14px;margin-bottom:14px">
     <div class="card pad0"><div class="ch"><h3>소프트 런치 점검 <span class="muted" style="font-weight:400">처음 ${STUDY.softN}명(16칸 × 2) → 점검 → 통과면 전체 배포 · 한눈에 보기 '소프트 런치' 판정과 같은 계산</span></h3><span class="badge ${sl.stop ? 'b-bad' : sl.n >= sl.target && !sl.pending ? 'b-ok' : 'b-mute'}">${esc(sl.verdict)}</span></div>
-      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>기준</th><th>값 (지금 ${sl.n}명)</th><th>판정</th></tr></thead><tbody>${sl.conds.map(c => `<tr><td style="white-space:normal;min-width:160px">${esc(c.label)}</td><td class="mono" style="white-space:normal">${esc(c.value)}</td><td>${c.ok == null ? '<span class="badge b-mute">—</span>' : c.ok ? '<span class="badge b-ok">괜찮음</span>' : '<span class="badge b-bad">걸림</span>'}</td></tr>`).join('')}</tbody></table></div>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>기준</th><th>값 (지금 ${sl.n}명)</th><th>판정</th></tr></thead><tbody>${sl.conds.map(c => `<tr><td style="white-space:normal;min-width:160px">${esc(c.label)}</td><td class="mono" style="white-space:normal">${esc(c.value)}</td><td>${c.ok == null ? '<span class="badge b-mute">—</span>' : c.ok ? (c.warn ? '<span class="badge b-warn">주의</span>' : '<span class="badge b-ok">괜찮음</span>') : '<span class="badge b-bad">걸림</span>'}</td></tr>`).join('')}</tbody></table></div>
       <div class="muted" style="padding:10px 20px 14px">네 조건 모두 종속변수를 보지 않고 판단합니다. 하나라도 걸리면 전체 공개를 미루고 원인(화면 오류 · 배정 · 모집 문구)을 먼저 고칩니다. 소프트 런치 = 설정 탭 '본 설문 시작'(${esc(String(mainStart()).slice(0, 16).replace('T', ' '))})부터 '전체 배포 시작'(${esc(fullStartAt() ? String(fullStartAt()).slice(0, 16).replace('T', ' ') : '아직 안 정함')}) 전까지의 본 설문 기록입니다.</div></div>
   </div>
   <div class="card pad0"><div class="ch"><h3>매일 21:00 한 줄 <span class="muted" style="font-weight:400">${mainStartSet() ? kstDate(mainStart()).slice(5).replace('-', '/') : '본 설문 시작 날'} – ${STUDY.collect.end.slice(5).replace('-', '/')} · 그날 24:00까지 누적 · 조치는 Firebase에 저장</span></h3><button class="btn xs ghost" onclick="copyText(['날짜\\t누적 n\\t칸별 범위\\t오늘 / 목표\\t이탈\\t주의 통과\\tMC 정답\\t시간\\t매칭\\t조치'].concat(monitorDates().map(d=>monitorLine(monitorRow(d)))).join('\\n'))">표 전체 복사</button></div>
@@ -2897,8 +2902,8 @@ const pcS = r => r.n ? `${fmtPct(pct(r.ok, r.n))} (${r.ok}/${r.n})` : '—';
 
 /* ---------- 판정 ---------- */
 function wrapJudge(rows) {
-  const pass = rows.filter(r => r.ok === true).length, fail = rows.filter(r => r.ok === false).length, pending = rows.filter(r => r.ok == null && !r.ref).length;
-  return { rows, pass, fail, pending, verdict: !rows.length ? '판정할 줄 없음' : fail ? `미달 ${fail}개` : pending ? (pass ? `판정 중 · 통과 ${pass}` : '아직 판정 전') : '모두 통과' };
+  const pass = rows.filter(r => r.ok === true).length, fail = rows.filter(r => r.ok === false).length, pending = rows.filter(r => r.ok == null && !r.ref).length, warn = rows.filter(r => r.ok === true && r.warn).length;   // 화면 59: warn = 통과지만 '다듬고 진행'(22번 60–74%)
+  return { rows, pass, fail, pending, warn, verdict: !rows.length ? '판정할 줄 없음' : fail ? `미달 ${fail}개` : pending ? (pass ? `판정 중 · 통과 ${pass}${warn ? ` (주의 ${warn})` : ''}` : '아직 판정 전') : warn ? `통과 · 주의 ${warn}개` : '모두 통과' };
 }
 function stageJudge(k) {
   k = k || stageKey(); const set = stageSet(k);
@@ -2916,6 +2921,10 @@ function pilot2Judge(set, ok, lab) {   // 파일럿 ②: 예전 ③ 실제 진�
   const d = rows.find(r => r.key === 'drop'); if (d) { d.num = nkS(dropN, base.length); d.value = `${lab || '파일럿 ②'} ${set.length}명 중 하다가 나감 ${dropN} · 완료 ${base.length - dropN}`; d.ok = base.length ? dropN / base.length <= STUDY.stop.dropMax : null; d.noData = !base.length; }   // pilotJudge는 ③ 실제 진행 기록으로 셈 → 파일럿 ② 기록으로 다시
   return wrapJudge(rows);
 }
+/* 화면 59: 22번 세 칸 — go(75% 이상) · mid(60–74%) · hold(60% 미만) */
+function q22Tier(p) { return p == null ? null : p >= STUDY.q22.go ? 'go' : p >= STUDY.q22.hold ? 'mid' : 'hold'; }
+function q22Text(t, k) { return t === 'go' ? '진행' : t === 'mid' ? (k === 'soft' ? `다듬고 진행 → 첫 ${STUDY.stop.mcFirstN}명 재확인` : '진행 + 민감도(정답자만 · 첫 과업만)') : t === 'hold' ? '보류 · 교수님 상담' : ''; }
+const q22Crit = k => `${pc100(STUDY.q22.go)}% 이상 진행 · ${pc100(STUDY.q22.hold)}–${pc100(STUDY.q22.go) - 1}% ${k === 'soft' ? `다듬고 진행 → 첫 ${STUDY.stop.mcFirstN}명 재확인` : '진행 + 민감도(정답자만 · 첫 과업만)'} · ${pc100(STUDY.q22.hold)}% 미만 보류 · 교수님 상담 (11/16 팀)`;
 function runJudge(k, set) {   // 소프트 런치 = 동결 기록 5번 재검사 기준(21 · 22번 70% · W 방향) + 중단 조건 · 본 설문 = 사전등록 중단 조건 4개 — 종속변수는 보지 않음
   const done = set.filter(s => statusOf(s) === 'done').sort((a, b) => doneAt(a) - doneAt(b)), ok = done.filter(s => !isOut(s));
   const started = set.filter(s => statusOf(s) !== 'screened'), dropped = started.filter(s => statusOf(s) === 'dropped');
@@ -2926,7 +2935,7 @@ function runJudge(k, set) {   // 소프트 런치 = 동결 기록 5번 재검사
     rows.push({ key: 'skew', label: '배정 쏠림 (집단 4개)', crit: `기대치 ±${pc100(STUDY.stop.cellSkew)}% 안 · 8명부터 판정`, num: ok.length ? `집단별 ${g.join(' · ')}` : '—', value: ok.length ? `기대 ${f1(e)}명 · 가장 큰 차이 ${Math.round(sk * 100)}%` : '—', ok: ok.length >= 8 ? sk <= STUDY.stop.cellSkew : null });
     const t21 = rate(ok.flatMap(s => [mcOk(s, 1, 'MC_TYPE'), mcOk(s, 2, 'MC_TYPE')])), t22 = rate(ok.flatMap(s => [mcOk(s, 1, 'MC_TIME'), mcOk(s, 2, 'MC_TIME')]));
     rows.push({ key: 'x1', label: '유형 조작점검 (21번)', crit: `쇼핑마다 정답 ${pc100(STUDY.stop.mcMin)}% 이상 (동결 기록 재검사 기준)`, num: nkS(t21.ok, t21.n), value: pcS(t21), ok: t21.n ? t21.p >= STUDY.stop.mcMin : null });
-    rows.push({ key: 'x2', label: '시점 조작점검 (22번)', crit: `쇼핑마다 정답 ${pc100(STUDY.stop.mcMin)}% 이상 (동결 기록 재검사 기준)`, num: nkS(t22.ok, t22.n), value: pcS(t22), ok: t22.n ? t22.p >= STUDY.stop.mcMin : null });
+    { const t = q22Tier(t22.n ? t22.p : null); rows.push({ key: 'x2', label: '시점 조작점검 (22번)', crit: `쇼핑마다 정답 · ${q22Crit('soft')}`, num: nkS(t22.ok, t22.n), value: t ? `${pcS(t22)} → ${q22Text(t, 'soft')}` : pcS(t22), ok: t == null ? null : t !== 'hold', warn: t === 'mid' }); }   // 화면 59: 70% 한 줄 → 75/60 세 칸
     const W = wPersonCheck(ok), wd = (W.mg != null && W.me != null) ? W.mg - W.me : null;
     rows.push({ key: 'wDir', label: 'W 방향 (23번)', crit: '목적형 평균이 탐색형 평균보다 높아야', num: wd == null ? '—' : `차 ${f1(wd)}`, value: `목적형 ${f1(W.mg)} (${W.nG}명) · 탐색형 ${f1(W.me)} (${W.nE}명)`, ok: wd == null ? null : wd > 0 });
   } else {
@@ -2935,6 +2944,8 @@ function runJudge(k, set) {   // 소프트 런치 = 동결 기록 5번 재검사
     rows.push({ key: 'skew', label: '칸 쏠림 (16칸)', crit: `기대치 ±${pc100(STUDY.stop.cellSkew)}% 밖인 칸 0개 · 16명부터 판정`, num: ok.length ? `칸별 ${Math.min(...vals)}–${Math.max(...vals)}명` : '—', value: ok.length >= 16 ? `기대 ${f1(e)}명 · 벗어난 칸 ${skN}개` : `${ok.length}명 — 16명부터 판정`, ok: ok.length >= 16 ? skN === 0 : null });
     const first = ok.slice(0, STUDY.stop.mcFirstN), mc = rate(first.flatMap(s => [1, 2].flatMap(n => [mcOk(s, n, 'MC_TYPE'), mcOk(s, n, 'MC_TIME')])));
     rows.push({ key: 'mc', label: `조작점검 정답 (21 · 22번 · 첫 ${STUDY.stop.mcFirstN}명)`, crit: `${pc100(STUDY.stop.mcMin)}% 이상 (사전등록 중단 조건)`, num: nkS(mc.ok, mc.n), value: `${pcS(mc)} · 지금 ${first.length}명으로 계산`, ok: mc.n ? mc.p >= STUDY.stop.mcMin : null });
+    { const f22 = rate(first.flatMap(s => [mcOk(s, 1, 'MC_TIME'), mcOk(s, 2, 'MC_TIME')])), full = first.length >= STUDY.stop.mcFirstN, t = q22Tier(f22.n ? f22.p : null);   // 화면 59: 22번 첫 100명 세 칸(사전등록 4장 갈림길 1 · 분석 코드 FIRST_GO · FIRST_MID와 같은 숫자)
+      rows.push({ key: 'q22first', label: `시점 조작점검 (22번 · 첫 ${STUDY.stop.mcFirstN}명)`, crit: `두 쇼핑 정답 · ${q22Crit('main')}`, num: nkS(f22.ok, f22.n), value: `${pcS(f22)}${t ? ' → ' + q22Text(t, 'main') : ''} · 지금 ${first.length}명${full ? '' : ` — ${STUDY.stop.mcFirstN}명이 차면 판정`}`, ok: !full || t == null ? null : t !== 'hold', warn: full && t === 'mid' }); }
   }
   rows.push({ key: 'drop', label: '이탈', crit: `하다가 나간 비율 ${pc100(STUDY.stop.dropMax)}% 이하`, num: nkS(dropped.length, started.length), value: started.length ? fmtPct(pct(dropped.length, started.length)) : '—', ok: started.length ? dropped.length / started.length <= STUDY.stop.dropMax : null });
   const t0 = set.filter(s => statusOf(s) === 'screened' && /ATT0/.test(screenReason(s))).length;
@@ -2946,12 +2957,12 @@ function runJudge(k, set) {   // 소프트 런치 = 동결 기록 5번 재검사
 /* 매일 점검 탭의 '소프트 런치 점검' 카드도 맨 위 '소프트 런치' 판정과 같은 계산으로 (예전: 11/12 18:00부터 센 4줄) */
 function softLaunchCheck() {
   const set = stageSet('soft'), j = runJudge('soft', set), n = stageDoneOk('soft', set).length;
-  const conds = j.rows.filter(r => !r.ref).map(r => ({ label: `${r.label} — ${r.crit}`, value: [r.num, r.value].filter(x => x && x !== '—').join(' · ') || '—', ok: r.ok }));
+  const conds = j.rows.filter(r => !r.ref).map(r => ({ label: `${r.label} — ${r.crit}`, value: [r.num, r.value].filter(x => x && x !== '—').join(' · ') || '—', ok: r.ok, warn: !!r.warn }));
   const stop = conds.some(c => c.ok === false), pending = conds.some(c => c.ok == null);
-  return { n, target: STUDY.softN, conds, stop, pending, verdict: !n ? '아직 자료 없음' : stop ? '기준에 걸림 → 그날 조치' : pending ? '아직 판정 중' : (n >= STUDY.softN ? '통과 → 전체 공개' : `진행 중 (${n}/${STUDY.softN})`) };
+  return { n, target: STUDY.softN, conds, stop, pending, verdict: !n ? '아직 자료 없음' : stop ? '기준에 걸림 → 그날 조치' : pending ? '아직 판정 중' : (n >= STUDY.softN ? (conds.some(c => c.warn) ? `통과 · 22번 다듬고 진행 → 첫 ${STUDY.stop.mcFirstN}명 재확인` : '통과 → 전체 공개') : `진행 중 (${n}/${STUDY.softN})`) };
 }
 function judgeTableHTML(j) {
-  const badge = r => r.noData ? '<span class="badge b-mute">자료 없음</span>' : r.ref ? '<span class="badge b-mute">참고</span>' : r.ok === true ? '<span class="badge b-ok">통과</span>' : r.ok === false ? '<span class="badge b-bad">미달</span>' : '<span class="badge b-mute">판정 전</span>';
+  const badge = r => r.noData ? '<span class="badge b-mute">자료 없음</span>' : r.ref ? '<span class="badge b-mute">참고</span>' : r.ok === true ? (r.warn ? '<span class="badge b-warn">주의 · 진행</span>' : '<span class="badge b-ok">통과</span>') : r.ok === false ? '<span class="badge b-bad">미달</span>' : '<span class="badge b-mute">판정 전</span>';
   return `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>확인할 것</th><th>기준 (미리 정한 것)</th><th>숫자 (n 중 k)</th><th>지금 값</th><th>판정</th></tr></thead><tbody>${j.rows.length ? j.rows.map(r => `<tr class="${r.ok === false ? 'jr-bad' : ''}"><td style="white-space:normal;min-width:150px"><b>${esc(r.label)}</b></td><td class="wrap dim" style="min-width:150px">${esc(r.crit || '')}</td><td class="mono" style="font-size:12px;white-space:normal;min-width:90px"><b>${esc(r.num || '—')}</b></td><td class="wrap mono" style="font-size:12px">${esc(r.value || '')}</td><td>${badge(r)}</td></tr>`).join('') : `<tr><td colspan="5">${emptyBox('이 단계에는 판정할 줄이 없습니다')}</td></tr>`}</tbody></table></div>`;
 }
 
@@ -3030,6 +3041,20 @@ function renderMC() {
 }
 
 /* ---------- 한눈에 보기 ---------- */
+/* 화면 59 (11/16 팀 요청): 성별 · 나이 비중 — 성별 = 27번(Q1 · 설문 맨 끝) · 나이 = 1번(Q2 · 첫 화면) · 이 단계 완료(집계 대상) 기준
+   엠브레인 쿼터(본 설문 남 90 · 여 90)와 맞춰 보기용 — 업체는 패널 정보로 할당하니 우리 27번 답과 다를 수 있음 · 종속변수 아님(잠금과 상관없음) */
+function demoCardHTML(k, ok) {
+  const n = ok.length, c = { '남': 0, '여': 0, '응답하지 않음': 0 }; let blank = 0;
+  ok.forEach(s => { const v = ansV(s, 'Q1'); if (c[v] != null) c[v]++; else blank++; });
+  const ages = ok.map(s => ansV(s, 'Q2')).filter(v => typeof v === 'number' && isFinite(v)), am = mean(ages);
+  const bands = [['19–24세', 19, 24], ['25–29세', 25, 29], ['30–34세', 30, 34], ['35–39세', 35, 39]].map(([l, a, b]) => [l, ages.filter(x => x >= a && x <= b).length]);
+  const half = k === 'main' ? STUDY.targetN / 2 : k === 'soft' ? STUDY.softN / 2 : null;
+  const bar = v => hbar(v, c[v], n, 'k1', `${c[v]}명 · ${fmtPct(pct(c[v], n))}${half && v !== '응답하지 않음' ? ` · 반반이면 ${half}` : ''}`);
+  return `<div class="grid g2" style="margin-bottom:14px">
+    <div class="card"><div class="ch"><h3>성별 <span class="muted" style="font-weight:400">완료 ${n}명 · 27번(설문 맨 끝) 답 · 엠브레인 쿼터는 패널 정보라 조금 다를 수 있음</span></h3></div><div class="stack" style="gap:8px">${bar('남')}${bar('여')}${c['응답하지 않음'] ? bar('응답하지 않음') : ''}${blank ? `<div class="muted" style="font-size:12px">성별 빈칸 ${blank}명</div>` : ''}${n ? '' : '<div class="muted" style="font-size:12px">아직 완료한 사람이 없습니다</div>'}</div></div>
+    <div class="card"><div class="ch"><h3>나이 <span class="muted" style="font-weight:400">완료 ${n}명 · 1번(첫 화면) 답 · 평균 ${am == null ? '—' : (Math.round(am * 10) / 10).toFixed(1) + '세'}</span></h3></div><div class="stack" style="gap:8px">${bands.map(([l, m]) => hbar(l, m, n, 'k1', `${m}명 · ${fmtPct(pct(m, n))}`)).join('')}</div></div>
+  </div>`;
+}
 function renderDashboardStage() {
   const k = stageKey();
   if (k === 'old') { renderDashboard(); $('#page-dashboard').insertAdjacentHTML('afterbegin', `<div class="banner info" style="margin-bottom:14px"><b>기록</b><span>11/12까지 쓰던 예전 한눈에 보기 그대로입니다(미니테스트 · 파일럿 판정표 · 일정). 지금 단계 숫자는 맨 위에서 단계를 고르세요.</span><span class="sp"></span><button class="btn xs ghost" onclick="backToRun()">지금 단계로</button></div>`); return; }
@@ -3045,7 +3070,7 @@ function renderDashboardStage() {
   if (k === 'soft' && !fullStartAt()) banners.push(`<div class="banner info" style="margin-bottom:10px"><b>전체 배포 시작 시각</b><span>비어 있어서 본 설문 기록 전부를 소프트 런치로 셉니다. 점검이 끝나고 모두에게 열 때 설정 탭에 넣으면 그 뒤 기록은 '본 설문'으로만 셉니다.</span></div>`);
   if ((k === 'pilot2' || k === 'pilot4') && !set.length) banners.push(`<div class="banner info" style="margin-bottom:10px"><b>${esc(st.label)} 링크</b><span>${esc(st.how)}</span></div>`);
   if (!rh.pass) banners.push(`<div class="banner" style="margin-bottom:10px"><b>연결 리허설</b><span>지금 실험물(${esc(rh.ver || acceptedVersion())})로 ${rh.okN}/${rh.target}회 — 참가자에게 링크를 보내기 전에 32회를 끝내세요(설정 탭 맨 위).</span></div>`);
-  const vColor = j.fail ? 'var(--bad)' : (!j.pending && j.pass) ? 'var(--ok)' : '';
+  const vColor = j.fail ? 'var(--bad)' : (!j.pending && j.pass) ? (j.warn ? 'var(--warn)' : 'var(--ok)') : '';
   $('#page-dashboard').innerHTML = `
   <div class="page-head"><div><div class="kicker">지금 단계 · ${esc(st.label)}</div><div class="pt">${esc(st.label)} — 지금 어디까지 왔나</div><div class="lead">이 화면의 숫자 · 판정은 '${esc(st.label)}' 기록만 셉니다. 지난 단계 · 리허설 · 테스트 · 미리보기는 안 들어갑니다.</div><div class="muted" style="font-size:12px;margin-top:4px">이 단계 기록 = ${esc(st.how)}</div></div>
     <div class="r"><button class="btn sm" onclick="goPage('mc')">조작점검 표</button><button class="btn sm ghost" onclick="goPage('responses')">응답 보기</button><button class="btn sm ghost" onclick="S.sel.exportKind='stage';exportCurrent('responses')">응답 CSV · ${esc(st.label)}</button></div></div>
@@ -3056,11 +3081,11 @@ function renderDashboardStage() {
     <div class="stat k3"><div class="l">판정</div><div class="v" style="${vColor ? 'color:' + vColor : ''}">${esc(j.verdict)}</div><div class="s">통과 ${j.pass} · 미달 ${j.fail} · 판정 전 ${j.pending}${j.rows.some(r => r.ref) ? ' · 참고 줄은 판정 안 함' : ''}</div></div>
     ${(k === 'pilot2' || k === 'pilot4') ? `<div class="stat k4" style="cursor:pointer" onclick="goPage('mc')"><div class="l">조작점검 틀린 사람</div><div class="v">${sm.wrongPeople}<small>/ ${sm.n}명</small></div><div class="s">21번 ${fmtPct(pct(sm.r21.ok, sm.r21.n))} · 22번 ${fmtPct(pct(sm.r22.ok, sm.r22.n))} · 23번 ${fmtPct(pct(sm.r23.ok, sm.r23.n))} → 표 보기</div></div>` : `<div class="stat k4"><div class="l">오늘 완료 / 하루 목표</div><div class="v">${todayN}<small>/ ${perDay()}</small></div><div class="s">소요 시간 중앙값 ${fmtDur(med)}</div></div>`}
   </div>
-  <div class="card pad0" style="margin-bottom:14px"><div class="ch"><h3>판정 · ${esc(st.label)} <span class="muted" style="font-weight:400">${k === 'pilot4' ? '파일럿 ② 기준과 같은 줄 · 4명뿐이라 틀린 칸은 13번 인터뷰로 확인' : k === 'pilot2' ? '예전 ③ 실제 진행 판정과 같은 줄 · 같은 기준' : k === 'soft' ? '동결 기록 5번 재검사 기준(21 · 22번 70% · W 방향) + 중단 조건 · 종속변수는 안 봄' : '사전등록 중단 조건 4개 + 참고 · 종속변수는 안 봄'}</span></h3><span class="badge ${j.fail ? 'b-bad' : j.pending ? 'b-mute' : 'b-ok'}">${esc(j.verdict)}</span></div>
+  <div class="card pad0" style="margin-bottom:14px"><div class="ch"><h3>판정 · ${esc(st.label)} <span class="muted" style="font-weight:400">${k === 'pilot4' ? '파일럿 ② 기준과 같은 줄 · 4명뿐이라 틀린 칸은 13번 인터뷰로 확인' : k === 'pilot2' ? '예전 ③ 실제 진행 판정과 같은 줄 · 같은 기준' : k === 'soft' ? '동결 기록 5번 재검사 기준(21번 70% · 22번 75/60 세 칸 · W 방향) + 중단 조건 · 종속변수는 안 봄' : '사전등록 중단 조건 4개 + 22번 첫 100명(75/60 세 칸) + 참고 · 종속변수는 안 봄'}</span></h3><span class="badge ${j.fail ? 'b-bad' : j.pending ? 'b-mute' : j.warn ? 'b-warn' : 'b-ok'}">${esc(j.verdict)}</span></div>
     ${judgeTableHTML(j)}</div>
   <div class="grid g2" style="margin-bottom:14px">
     <div class="card"><div class="ch"><h3>조작점검 한눈에 <span class="muted" style="font-weight:400">기준 ${pc100(th)}%</span></h3><button class="btn xs ghost" onclick="goPage('mc')">사람별 표 →</button></div>
-      <div class="stack" style="gap:8px">${hbar('21번 유형', sm.r21.ok, sm.r21.n, sm.r21.n ? (sm.r21.p >= th ? 'kok' : 'kbad') : 'k1', sm.r21.n ? `${sm.r21.ok}/${sm.r21.n}` : '—')}${hbar('22번 시점', sm.r22.ok, sm.r22.n, sm.r22.n ? (sm.r22.p >= th ? 'kok' : 'kbad') : 'k1', sm.r22.n ? `${sm.r22.ok}/${sm.r22.n}` : '—')}${hbar('23번 W (사람)', sm.r23.ok, sm.r23.n, sm.r23.n ? (sm.r23.p >= STUDY.wK / STUDY.wN ? 'kok' : 'kbad') : 'k1', sm.r23.n ? `${sm.r23.ok}/${sm.r23.n}` : '—')}</div>
+      <div class="stack" style="gap:8px">${hbar('21번 유형', sm.r21.ok, sm.r21.n, sm.r21.n ? (sm.r21.p >= th ? 'kok' : 'kbad') : 'k1', sm.r21.n ? `${sm.r21.ok}/${sm.r21.n}` : '—')}${hbar('22번 시점', sm.r22.ok, sm.r22.n, sm.r22.n ? ((k === 'soft' || k === 'main') ? ({ go: 'kok', mid: 'kwarn', hold: 'kbad' })[q22Tier(sm.r22.p)] : (sm.r22.p >= th ? 'kok' : 'kbad')) : 'k1', sm.r22.n ? `${sm.r22.ok}/${sm.r22.n}` : '—')}${hbar('23번 W (사람)', sm.r23.ok, sm.r23.n, sm.r23.n ? (sm.r23.p >= STUDY.wK / STUDY.wN ? 'kok' : 'kbad') : 'k1', sm.r23.n ? `${sm.r23.ok}/${sm.r23.n}` : '—')}</div>
 </div>
     <div class="card"><div class="ch"><h3>준비 상태</h3></div><div class="kv" style="grid-template-columns:auto 1fr;gap:6px 16px">
       <dt>연결 리허설</dt><dd>${rh.okN}/${rh.target}회 매칭 ${rh.pass ? '<span class="badge b-ok">통과</span>' : '<span class="badge b-warn">아직</span>'} <span class="muted">${esc(rh.ver || '')}</span></dd>
@@ -3070,6 +3095,7 @@ function renderDashboardStage() {
       <dt>종속변수</dt><dd>${locked ? '잠금(수집 중)' : '열림'}</dd>
       <dt>너무 빠름 기준</dt><dd>${Math.round(fastThreshold())}초 ${fastFixed() ? '<span class="badge b-ok">고정</span>' : '<span class="badge b-warn">임시</span>'}</dd></div></div>
   </div>
+  ${demoCardHTML(k, ok)}
   <div class="card" style="margin-bottom:14px"><div class="ch"><h3>16칸 <span class="muted" style="font-weight:400">큰 수 = 완료${k === 'soft' ? '' : ' · 주황 = 모자란 칸'}${k === 'pilot4' ? ' · 흐린 칸 = 4명 점검에 안 쓰는 칸' : ''} · 들어온 = 시작한 사람</span></h3></div>${cellGridHTML(k, cf, set)}</div>
   <div class="card pad0"><div class="ch"><h3>최근에 들어온 사람 · ${esc(st.label)}</h3><button class="btn xs ghost" onclick="goPage('responses')">전체 보기</button></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>참여 번호</th><th>칸</th><th>조건</th><th>상태</th><th>어디까지</th><th>시작</th><th class="n">걸린 시간</th></tr></thead><tbody>
     ${recent.length ? recent.map(s => { const p = progressOf(s); return `<tr><td>${pidBtn(s.pid)}</td><td>${cellBadge(s)}</td><td>${groupBadge(s.cond.group)}</td><td>${stBadge(statusOf(s))}</td><td><div class="row" style="gap:8px;flex-wrap:nowrap"><span class="pbar" style="width:80px"><i style="width:${p.pct}%"></i></span><span class="muted mono" style="font-size:11.5px">${esc(p.stageLabel)}</span></div></td><td class="dim">${fmtDT(s.startedAt)}</td><td class="n">${fmtDur(totalSec(s))}</td></tr>`; }).join('') : `<tr><td colspan="7">${emptyBox('이 단계에는 아직 기록이 없습니다')}</td></tr>`}
