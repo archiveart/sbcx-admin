@@ -260,7 +260,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
       <button class="nav-item" data-page="trash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg>휴지통<span class="cnt" id="cnt-trash">0</span></button>
       <button class="nav-item" data-page="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>설정·내려받기</button>
     </nav>
-    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 54</b> · 11/15 · 실험물 v22.53(FB_53) · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
+    <div class="sb-foot">허준영 · 응답·클릭 기록·동의 저장<br><span class="mono" id="sb-ver"><b>연구자 화면 55</b> · 11/16 · 실험물 v22.56(FB_56 · GitHub + Netlify) · 소프트 런치 32명 · 본 설문 번호 M001~ · 파일럿 R(11/14 밤 M805–M813 → R122–R129) · 코드북 v22.53 팀 + 화면 줄 · 응답 보기 본 설문 / 파일럿 · 동의 기록 사용 / 제외 · 연결 리허설은 설정 탭 · 매일 점검은 소프트 런치 · 4명 점검은 본 설문으로 셈 · 색은 역할로만</span></div>
   </aside>
   <div class="main">
     <header class="topbar">
@@ -313,6 +313,7 @@ details.card.rh-d>summary{display:flex;align-items:baseline;cursor:pointer}detai
 'use strict';
 /* =========================================================
    설문 플랫폼 연구자 화면 · 설계 상수
+   연구자 화면 55 (11/16, 허준영 · 팀 결정): 소프트 런치 18명 → 32명(16칸 × 2 · 18명은 비율이 흔들려서) — STUDY.softN 32 · 안내 '지인 18명(10%)' → '처음 32명(16칸 × 2)' · 판정 계산은 그대로('전체 배포 시작' 전 소프트 런치 기록 전부) · 실험물 표시 v22.56(FB_56)
    연구자 화면 54 (11/15 오후, 허준영): 목록 · 카드 · 표 · 번호 단추에도 원래 번호를 작게 다시 붙임(예: R122 M805 · 준영 요청) · 번호 규칙은 53 그대로
    연구자 화면 53 (11/15 낮, 허준영): 파일럿 번호 정리 — 11/14 밤 M으로 받은 파일럿 ② 8명(M805–M809 · M811–M813)을 들어온 순서대로 R122–R129로 표시(번호표 meta/seq/R1 121 → 129 · 새 파일럿 ② R130~ · R119–R121은 그사이 실제 참여자) · 목록에서는 원래 번호를 빼고 응답 상세 머리에만 '안내 번호' · 기록 키 · 참여자 안내 번호 · JSON 백업은 M 그대로 · M810은 휴지통
    연구자 화면 52 (11/15 0시, 허준영): 파일럿은 R · 본 설문은 M — 실험물 배포본 ⑦ 끔(?src=pilot2도 R · 공통 순번 R1) · 11/14 20:38–11/15 1시에 M8xx로 받은 파일럿 ② 기록(M805~ · 1시 기준 M805–M813)은 화면 · CSV에서 R8xx로 표시(v5_v51.js · 같은 숫자 · 기록 키 · 참여자 안내 번호는 M 그대로 · 쓸 때 원래 번호로 · JSON 백업은 원래 그대로 · 번호 옆에 작게 원래 번호) · 51의 R114–R117 → M801–M804 표시는 끔 · 하다가 나감 표에도 원래 번호 · 구분 · 판정은 그대로
@@ -396,7 +397,7 @@ const STUDY = {
   schedule: [['11.06', '① 인지 인터뷰 4명 · 23:00 미팅'], ['11.07', '수정 1차 · 사전검사 8명 섭외'], ['11.08', '11:00 점검 미팅 · 연결 리허설 16칸×2=32회(팀원 가짜 응답) → ② 사전검사 시작'], ['11.09', '사전검사 마무리 · 23:00 미팅 → 수정 2차'], ['11.10', '③ 실제 진행 10–20명 (수정 없음)'], ['11.11', 'W10 제출 · 수정 3차 · 캡처'], ['11.12', '동결 · 사전등록 PDF · 밤 10%(18명)'], ['11.13–22', '본 설문 (업체 패널 · 하루 목표는 설정) · 매일 21:00 한 줄'], ['11.22 24:00', '마감 → 결과 열기']],
   links: { survey: 'https://archiveart.github.io/moa/', rehearsal: 'https://archiveart.github.io/moa/rehearsal.html', admin: 'https://archiveart.github.io/sbcx-admin/', mini: 'https://archiveart.github.io/moa/?pilot=1&src=mini' },   // GitHub Pages(archiveart · 11/8) — 참가자용 실험물 · 리허설 자동 진행 파일 · 이 화면
   collect: { softStart: '2026-11-12T18:00:00+09:00', check: '2026-11-13T21:00:00+09:00', fullStart: '2026-11-14T00:00:00+09:00', start: '2026-11-13', end: '2026-11-22', closeAt: '2026-11-23T00:00:00+09:00', days: 10 },   // 교수님 W9 24–25쪽
-  softN: 18,                // 소프트 런치 = 목표의 10%
+  softN: 32,                // 소프트 런치 = 처음 32명(16칸 × 2) · 화면 55(11/16 팀): 18명(목표의 10%)은 사람이 적어 비율이 흔들려서 32명으로
   stop: { cellSkew: 0.15, dropMax: 0.20, mcMin: 0.70, mcFirstN: 100 },   // 중단 조건(교수님 24쪽): 매칭 오류 1건 · 배정 쏠림 ±15% · 첫 100명 MC < 70% · 이탈 > 20%
   rehearsalCells: 16, rehearsalPer: 2, rehearsalN: 32,   // 연결 리허설 — 교수님 8쪽 "연결 로직 리허설: 칸 수 × 2회 가짜 응답으로 매칭 100%" · 2조 16칸(목적 2 × 시점 2 × 과업 순서 2 × 세트 순서 2) × 2 = 32회(교수님 표 "2조 ★ P3 리허설 32회") · 팀원이 ?cell=1~16 링크로 돌리는 기술 점검(파일럿 인원 4·8·10–20명과 별개)
   liveStaleMs: 120000,      // 2분 동안 소식 없으면 '끊김'
@@ -1931,7 +1932,7 @@ function renderMonitor() {
   <div class="page-head"><div><div class="kicker">교수님 W9 24 · 25쪽</div><div class="pt">소프트 런치 점검 · 매일 21:00 한 줄</div><div class="lead">과정 숫자만 적어요(종속변수 평균은 안 봄). 빨간 숫자 = 기준 밖(칸별 ±${Math.round(STUDY.stop.cellSkew * 100)}% · 이탈 ≤ ${Math.round(STUDY.stop.dropMax * 100)}% · 첫 ${STUDY.stop.mcFirstN}명 MC ≥ ${Math.round(STUDY.stop.mcMin * 100)}% · 매칭 100%) — 벗어나면 그날 조치를 적어요. 연결 리허설은 설정 탭 맨 위로 옮겼어요.</div></div>
     <div class="r"><span class="badge b-mute mono">${esc(logNote)}</span><button class="btn sm ghost" onclick="fetchLogsKeys(true).then(()=>renderMonitor())">로그 키 다시 확인</button><button class="btn sm" onclick="exportCurrent('monitor')">시트 CSV</button></div></div>
   <div class="stack" style="gap:14px;margin-bottom:14px">
-    <div class="card pad0"><div class="ch"><h3>소프트 런치 점검 <span class="muted" style="font-weight:400">지인 ${STUDY.softN}명 → 점검 → 통과면 전체 배포 · 한눈에 보기 '소프트 런치' 판정과 같은 계산</span></h3><span class="badge ${sl.stop ? 'b-bad' : sl.n >= sl.target && !sl.pending ? 'b-ok' : 'b-mute'}">${esc(sl.verdict)}</span></div>
+    <div class="card pad0"><div class="ch"><h3>소프트 런치 점검 <span class="muted" style="font-weight:400">처음 ${STUDY.softN}명(16칸 × 2) → 점검 → 통과면 전체 배포 · 한눈에 보기 '소프트 런치' 판정과 같은 계산</span></h3><span class="badge ${sl.stop ? 'b-bad' : sl.n >= sl.target && !sl.pending ? 'b-ok' : 'b-mute'}">${esc(sl.verdict)}</span></div>
       <div class="tbl-wrap"><table class="tbl"><thead><tr><th>기준</th><th>값 (지금 ${sl.n}명)</th><th>판정</th></tr></thead><tbody>${sl.conds.map(c => `<tr><td style="white-space:normal;min-width:160px">${esc(c.label)}</td><td class="mono" style="white-space:normal">${esc(c.value)}</td><td>${c.ok == null ? '<span class="badge b-mute">—</span>' : c.ok ? '<span class="badge b-ok">괜찮음</span>' : '<span class="badge b-bad">걸림</span>'}</td></tr>`).join('')}</tbody></table></div>
       <div class="muted" style="padding:10px 20px 14px">네 조건 모두 종속변수를 보지 않고 판단합니다. 하나라도 걸리면 전체 공개를 미루고 원인(화면 오류 · 배정 · 모집 문구)을 먼저 고칩니다. 소프트 런치 = 설정 탭 '본 설문 시작'(${esc(String(mainStart()).slice(0, 16).replace('T', ' '))})부터 '전체 배포 시작'(${esc(fullStartAt() ? String(fullStartAt()).slice(0, 16).replace('T', ' ') : '아직 안 정함')}) 전까지의 본 설문 기록입니다.</div></div>
   </div>
@@ -2840,7 +2841,7 @@ const TEAM_CB_RENAME = { '검색 열 4개 · V22_FB_45 (task1_ · task2_ · D_ �
 const RUN_STAGES = [
   { key: 'pilot4', label: '4명 점검', sub: '파일럿 ② 앞 · 4명 · 4조건(목적형 · 탐색형 × 사전 · 사후)에 1명씩 · 모두 행동→결정 · 본 설문으로 셈 · 파일럿 기준과 같은 줄로 봄 · 틀린 칸은 13번 인터뷰로', how: '사람마다 링크 하나 — https://archiveart.github.io/moa/?src=pilot4&cell=3 (목적형 · 사전 · 행동→결정 · 니트 가→나) · https://archiveart.github.io/moa/?src=pilot4&cell=8 (목적형 · 사후 · 행동→결정 · 니트 나→가) · https://archiveart.github.io/moa/?src=pilot4&cell=11 (탐색형 · 사전 · 행동→결정 · 니트 가→나) · https://archiveart.github.io/moa/?src=pilot4&cell=16 (탐색형 · 사후 · 행동→결정 · 니트 나→가) — 실험물 그대로 · 칸 고정이라 본 설문 칸 수 안 올림 · 본 설문으로 셈', target: 4, cells: [3, 8, 11, 16] },
   { key: 'pilot2', label: '파일럿 ②', sub: '2차 파일럿 · 16명 · 16칸에 1명씩 · 파일럿 기준(조작점검 정답 85% 등)으로 판정', how: '본 설문 링크 뒤에 ?src=pilot2 — https://archiveart.github.io/moa/?src=pilot2 (실험물 그대로 · 파일럿 링크 ?pilot=1은 닫혀 있음) · 다른 링크로 왔으면 응답 상세에서 손으로 표시', target: 16 },
-  { key: 'soft', label: '소프트 런치', sub: `지인 ${STUDY.softN}명(10%) → 점검 → 이상 없으면 전체 배포 · 동결 기록 재검사 기준 + 중단 조건으로 판정`, how: "설정 탭 '본 설문 시작' 뒤 · '전체 배포 시작' 전의 본 설문 기록(4명 점검은 빼고 셈)", target: STUDY.softN },
+  { key: 'soft', label: '소프트 런치', sub: `처음 ${STUDY.softN}명(16칸 × 2) → 점검 → 이상 없으면 전체 배포 · 동결 기록 재검사 기준 + 중단 조건으로 판정`, how: "설정 탭 '본 설문 시작' 뒤 · '전체 배포 시작' 전의 본 설문 기록(4명 점검은 빼고 셈)", target: STUDY.softN },
   { key: 'main', label: '본 설문', sub: `목표 ${STUDY.targetN}명 · 16칸 × 11–12명 · 소프트 런치 · 4명 점검 포함 · 사전등록 중단 조건으로 판정`, how: "설정 탭 '본 설문 시작' 뒤의 본 설문 기록 전부(소프트 런치 포함) + 4명 점검", target: STUDY.targetN },
 ];
 const PAST_STAGES = [
@@ -2871,7 +2872,7 @@ function inSoft(s) { const f = fullStartAt(); return !f || (tsOf(s.startedAt) ||
 function runStageOf(s) { const k = kindOf(s); return k === 'pilot2' ? 'pilot2' : k === 'main' ? (isP4(s) ? 'pilot4' : inSoft(s) ? 'soft' : 'full') : ''; }   // CSV run_stage
 function stageSet(k) {   // 고른 단계의 기록(휴지통 · 다른 버전 빼고 · 진행 중 · 하다가 나감 · 조건 미달 포함)
   k = k || stageKey(); const v = sessionsVisible();
-  if (k === 'soft') return v.filter(s => kindOf(s) === 'main' && inSoft(s) && !isP4(s));   // 화면 48: 4명 점검은 본 설문이지만 소프트 런치 판정(18명)에서는 뺌
+  if (k === 'soft') return v.filter(s => kindOf(s) === 'main' && inSoft(s) && !isP4(s));   // 화면 48: 4명 점검은 본 설문이지만 소프트 런치 판정(화면 55부터 32명)에서는 뺌
   if (k === 'pilot4') return v.filter(s => kindOf(s) === 'main' && isP4(s));
   if (k === 'old') return v.filter(s => PAST_KINDS.includes(kindOf(s)));
   return v.filter(s => kindOf(s) === k);   // pilot2 · main · p1 · p2 · p2m · p3 · pilot
